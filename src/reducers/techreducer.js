@@ -1,4 +1,4 @@
-const TechReducer = (state= {viewmemberfortech: [],ratinglistcandidate: [],panelmembers: []}, action) => {
+const TechReducer = (state= {viewmemberfortech: [],ratinglistcandidate: [],panelmembers: [], candidates: []}, action) => {
     switch(action.type){
 
         //case to view all members
@@ -25,6 +25,13 @@ const TechReducer = (state= {viewmemberfortech: [],ratinglistcandidate: [],panel
          console.log('SURRENDER_AS_A_TECH', state.panelmembers);
          return state;
          //return action.payload;
+
+        //CASE TO VIEW A CANDIDATE FOR HR
+        case 'VIEW_A_CANDIDATE_FOR_TECH': 
+        state.candidates = action.payload;
+        console.log('VIEW_A_CANDIDATE_FOR_TECH', state.candidates);
+        return state;
+        //return action.payload;
 
         default:
             return state;
