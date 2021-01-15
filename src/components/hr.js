@@ -24,7 +24,7 @@ const HRComponent = () => {
 
                 <Tab eventKey="PanelMember" title="HR INTERVIEW">
                 <SearchCandidate></SearchCandidate>
-                    <PanelMemberForHR></PanelMemberForHR>
+                <PanelMemberForHR></PanelMemberForHR>
                     
                 </Tab>
             </Tabs>
