@@ -24,14 +24,9 @@ const HRComponent = () => {
 
                 <Tab eventKey="PanelMember" title="HR INTERVIEW">
                 <SearchCandidate></SearchCandidate>
-<<<<<<< HEAD
                 <PanelMemberForHR></PanelMemberForHR>
-                    
-=======
-                    <PanelMemberForHR></PanelMemberForHR>
-                    <InterviewSchedulerForHr></InterviewSchedulerForHr>
-                
->>>>>>> 2874aa4dd4104462d6836ec6f05d749cf2e023ba
+                <InterviewSchedulerForHr></InterviewSchedulerForHr>
+            
                 </Tab>
                 
             </Tabs>
