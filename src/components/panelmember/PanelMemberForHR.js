@@ -7,26 +7,18 @@ import { Accordion, Card, Button } from 'react-bootstrap'
 
 const PanelMemberForHR = (props) => {
     return (
-        <div style={{
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundImage:`url(/logo.png)`,
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            height: "100px"
-
-        }}>
+        <div>
             {/* All underlying operations from services */}
             <Accordion>
                 <Card>
                     <Card.Header>
-                        <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                        <Accordion.Toggle as={Button} variant="link" eventKey="9">
                             Surrender As HR Panel
                         </Accordion.Toggle>
                     </Card.Header>
-                    <Accordion.Collapse eventKey="1">
+                    <Accordion.Collapse eventKey="9">
                     {/* Search an Panel component */}
-                    <Card.Body class="bg-custom"><SurrenderAsHRPanel></SurrenderAsHRPanel></Card.Body>
+                    <Card.Body><SurrenderAsHRPanel></SurrenderAsHRPanel></Card.Body>
                     {/* Search an Panel component */}
                     </Accordion.Collapse>
                 </Card>

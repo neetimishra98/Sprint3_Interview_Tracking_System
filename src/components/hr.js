@@ -25,6 +25,7 @@ const HRComponent = () => {
                     <PanelMemberForHR></PanelMemberForHR>
                     <br></br>
                     <br></br>
+                    
                     <InterviewSchedulerForHr></InterviewSchedulerForHr>
                     <InterviewSchedulerForHrRating></InterviewSchedulerForHrRating>
                 

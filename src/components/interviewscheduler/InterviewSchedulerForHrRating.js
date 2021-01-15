@@ -10,12 +10,12 @@ const InterviewSchedulerForHrRating = () => {
             <Accordion>
                 <Card>
                     <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="3">
+                    <Accordion.Toggle as={Button} variant="link" eventKey="6">
 
                         Give HrRating To a Candidate
                     </Accordion.Toggle>
                     </Card.Header>
-                    <Accordion.Collapse eventKey="3">
+                    <Accordion.Collapse eventKey="6">
                     {/* givehrrating to InterviewScheduler component */}
                     <Card.Body><GiveHrRating></GiveHrRating></Card.Body>
                     {/* givehrrating to InterviewScheduler component */}

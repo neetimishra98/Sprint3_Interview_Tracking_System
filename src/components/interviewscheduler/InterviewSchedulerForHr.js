@@ -12,20 +12,24 @@ const InterviewSchedulerForHr = () => {
                 
 
 
+
                 <Card>
                     <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="4">
+                    <Accordion.Toggle as={Button} variant="link" eventKey="7">
                    View Interview Members 
                     </Accordion.Toggle>
                     </Card.Header>
-                    <Accordion.Collapse eventKey="4">
+                    <Accordion.Collapse eventKey="7">
                     {/* Fetch all Interview Members from InterviewScheduler component */}
                     <Card.Body><ViewListForHr></ViewListForHr></Card.Body>
                     {/* Fetch all Interview Members from InterviewScheduler component */}
                     </Accordion.Collapse>
                 </Card>
 
-               
+                
+
+
+                
 
                 </Accordion>
         </div>
