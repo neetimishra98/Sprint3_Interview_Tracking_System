@@ -6,7 +6,7 @@ const DeletePanelMemberAction = (props) => {
         var err = null;
         var onLoad = 0;
         const axios = require('axios').default;
-        const url = 'http://localhost:9090/cgits/panelmember/' + props;
+        const url = 'http://localhost:8080/cgits/panelmember/' + props;
         const serverResponse = await axios.delete(url) //await can only be used with async function....
             .then(response => dispatch({ type: 'DELETE_PANELMEMBER', payload: response.data }))
             .catch(error => console.log(err = error));

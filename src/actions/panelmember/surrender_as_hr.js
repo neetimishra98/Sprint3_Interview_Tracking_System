@@ -6,7 +6,7 @@ const SurrenderAsHRAction = (props)=> {
         var err = null;
         var onLoad = 0;
         const axios = require('axios').default;
-        const url = 'http://localhost:9091/cgits/panelmember/hr/'+props;
+        const url = 'http://localhost:8080/cgits/panelmember/hr/'+props;
         const serverResponse = await axios.get(url) //await can only be used with async function....
         .then(response => dispatch({type: 'SURRENDER_AS_HR', payload: response}))
         .catch(error => console.log(err=error));
