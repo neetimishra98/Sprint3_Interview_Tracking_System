@@ -21,13 +21,14 @@ const HRComponent = () => {
             <Tabs id="uncontrolled-tab-example">
 
                 <Tab eventKey="PanelMember" title="HR INTERVIEW">
+                <InterviewSchedulerForHr></InterviewSchedulerForHr>
+                    <InterviewSchedulerForHrRating></InterviewSchedulerForHrRating>
                 <SearchCandidate></SearchCandidate>
                     <PanelMemberForHR></PanelMemberForHR>
                     <br></br>
                     <br></br>
-                    
-                    <InterviewSchedulerForHr></InterviewSchedulerForHr>
-                    <InterviewSchedulerForHrRating></InterviewSchedulerForHrRating>
+
+                   
                 
                 </Tab>
             </Tabs>
