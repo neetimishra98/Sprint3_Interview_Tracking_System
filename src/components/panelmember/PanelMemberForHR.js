@@ -5,7 +5,7 @@ import DeletePanelMember from './services/deletepanelmember'
 
 import { Accordion, Card, Button } from 'react-bootstrap'
 
-const PanelMemberForHR = () => {
+const PanelMemberForHR = (props) => {
     return (
         <div style={{
             justifyContent: "center",

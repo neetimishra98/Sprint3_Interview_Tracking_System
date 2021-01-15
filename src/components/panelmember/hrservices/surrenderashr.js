@@ -81,9 +81,9 @@ const SurrenderAsHRPanel = (props) => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{panelMember.data.panelid}</td>
-                            <td>{panelMember.data.location}</td>
-                            <td>{panelMember.data.type}</td>
+                            <td>{panelMember.panelid}</td>
+                            <td>{panelMember.location}</td>
+                            <td>{panelMember.type}</td>
                         </tr>
                     </tbody>
                 </Table>
