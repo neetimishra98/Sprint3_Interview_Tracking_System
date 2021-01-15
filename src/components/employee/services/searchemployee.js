@@ -2,10 +2,8 @@
 import { render } from '@testing-library/react';
 import React, { useState } from 'react'
 import { Form, Table, Jumbotron, Button, Alert } from 'react-bootstrap'
-
 import { useDispatch, useSelector } from 'react-redux';
 import SearchEmployeeAction from '../../../actions/employee/searchemployee_action'
-
 
 const SearchEmployee = (props) => {
 
@@ -66,8 +64,7 @@ const SearchEmployee = (props) => {
                 <div></div>
             );
         }
-        
-        
+    
     }
 
     function renderData(employee) {   

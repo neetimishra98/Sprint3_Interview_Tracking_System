@@ -8,7 +8,7 @@ import SurrenderAsHRAction from '../../../actions/panelmember/surrender_as_hr';
 const SurrenderAsHRPanel = (props) => {
 
     var pathVar = null;
-    let panelMember = useSelector((state)=>state);
+    let panelMember = useSelector((state)=>state.HRReducer.panelmembers);
     let dispatcher = useDispatch();
     React.useEffect(()=>SurrenderAsHRAction_Func(), [])
         const SurrenderAsHRAction_Func = () => {
@@ -18,21 +18,16 @@ const SurrenderAsHRPanel = (props) => {
     const handleSubmit = (event) =>{ 
         pathVar = document.getElementById("pathVar").value;
         dispatcher(SurrenderAsHRAction(pathVar));
-        renderData(panelMember);
+        //renderData(panelMember);
     }
 
     return (
         // All Final Operations and Functions
         <div style={{
+            display: "flex",
             justifyContent: "center",
-            alignItems: "center",
-            backgroundImage:`url(/logo.png)`,
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            height: "100px"
-    
-    
-        }}>
+            alignItems: "center"
+          }}>
             <Jumbotron style={{width: 700}}>
                 <Form>
                     <Form.Group controlId="formGroupText">
@@ -86,9 +81,9 @@ const SurrenderAsHRPanel = (props) => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{panelMember.data.panelid}</td>
-                            <td>{panelMember.data.location}</td>
-                            <td>{panelMember.data.type}</td>
+                            <td>{panelMember.panelid}</td>
+                            <td>{panelMember.location}</td>
+                            <td>{panelMember.type}</td>
                         </tr>
                     </tbody>
                 </Table>
@@ -96,10 +91,7 @@ const SurrenderAsHRPanel = (props) => {
                 </div>
             );
         }
-        else if(panelMember!==undefined && panelMember.data.type!==null){
-            console.log("Already surrendered!");
-            <Alert>Already surrendered!</Alert>
-        }
+        
         if(panelMember!==undefined && panelMember===null){
             //return(<Box/>);
             console.log("called the alert");
