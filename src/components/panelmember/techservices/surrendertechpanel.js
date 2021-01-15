@@ -69,7 +69,7 @@ const SurrenderAsTechPanel = (props) => {
 
     function renderData(panelMember) {   
         console.log("panel member dispatcher object returned from the server : ", panelMember);
-        if(panelMember!==undefined && panelMember!==null){
+        if(panelMember!==undefined && panelMember!==null && panelMember.length!==0){
             return(
                 <div>
                 <Table striped bordered hover size="sm">
