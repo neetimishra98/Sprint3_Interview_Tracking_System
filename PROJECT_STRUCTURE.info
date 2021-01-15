@@ -1,0 +1,9 @@
+The UI is structured as follows :
+
+* Logic decides on which out of Admin or Tech Component to show on login
+
+* Admin Services (admin.js) component has 4 components {entity}foradmin.js [namely employeeforadmin]
+* Every component, for example 'employeeforadmin' has multiple subcomponents which are actual services declared in the project specification (like searchemployee.js)
+* So the flow of component to access a particular function (say AddPanelMember) would be admin.js->panelmemberforadmin.js->./services/addpanelmember.js
+
+* Likewise there are Tech and HRPanel services with the same flow of components.
