@@ -8,18 +8,27 @@ import ViewaCandidateForHRAction from '../../../actions/candidate/view_a_cand_hr
 const ViewACandidateForHR = (props) => {
 
     var pathVar = null;
-    let candidate = useSelector((state) => state.HRReducer.candidate);
+
+
+
+    let candidate = useSelector((state)=>state.HRReducer.candidates);
     let dispatcher = useDispatch();
-    React.useEffect(()=>ViewaCandidateForHRAction_Func(), [])
-    const ViewaCandidateForHRAction_Func = () => {
-        dispatcher(ViewaCandidateForHRAction(pathVar));
+    React.useEffect(()=>ViewaCandidateForHRAction_Function(), [])
+    const ViewaCandidateForHRAction_Function = () => {
+        console.log(pathVar);
+            dispatcher(ViewaCandidateForHRAction(pathVar));
+
     }
     
     const handleSubmit = (event) =>{ 
         pathVar = document.getElementById("pathV").value;
         dispatcher(ViewaCandidateForHRAction(pathVar));
+
         renderData(candidate);
+        //renderData(candidate);
+
     }
+
     return (
         // All Final Operations and Functions
         <div style={{
@@ -97,6 +106,16 @@ const ViewACandidateForHR = (props) => {
                             <td>{candidate.data.primaryskills}</td>
                             <td>{candidate.data.secondaryskills}</td>
                             <td>{candidate.data.noticeperiod}</td>
+
+                            <td>{candidate.candidateid}</td>
+                            <td>{candidate.candidatename}</td>
+                            <td>{candidate.location}</td>
+                            <td>{candidate.qualification}</td>
+                            <td>{candidate.designation}</td>
+                            <td>{candidate.experience}</td>
+                            <td>{candidate.primaryskills}</td>
+                            <td>{candidate.secondaryskills}</td>
+                            <td>{candidate.noticeperiod}</td>
                         </tr>
                     </tbody>
                 </Table>

@@ -2,12 +2,15 @@ import axios from 'axios';
 
 const ShowPanelMemberAction = (props) => {
     return async function (dispatch) {
-        let error;
+        var err = null;
+        var onLoad = 0;
         const axios = require('axios').default;
-        const url = 'http://localhost:9090/cgits/panelmembers';
+        console.log(props);
+        const url = 'http://localhost:8080/cgits/panelmembers';
         const serverResponse = await axios.get(url) //await can only be used with async function....
             .then(response => dispatch({ type: 'SHOW_PANELMEMBER', payload: response.data }))
-            .catch(error => console.log(error));
+            .catch(error => console.log(err = error));
+        console.log(serverResponse);
     }
 }
 

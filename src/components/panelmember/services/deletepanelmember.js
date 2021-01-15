@@ -19,7 +19,7 @@ const DeletePanelMember = (props) => {
 
     const handleSubmit = (event) => {
         pathVar = document.getElementById("pathVariable").value;
-        console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",pathVar);
+        console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", pathVar);
         dispatcher(DeletePanelMemberAction(pathVar));
         renderData(panelMember);
         console.log(pathVar);
@@ -41,14 +41,25 @@ const DeletePanelMember = (props) => {
             <Jumbotron style={{ width: 600 }}>
                 <Form>
                     <Form.Group controlId="formGroupText">
-                        <Form.Label for ="pathVariable">Delete by valid Name</Form.Label>
+                        <Form.Label for="pathVariable">Delete by valid Name</Form.Label>
                         <Form.Control id="pathVariable" type="text" placeholder="Employee Name" />
                     </Form.Group>
                     <Button variant="dark" type="button" call onClick={handleSubmit}>
                         Delete
                     </Button>
-                    <hr></hr>
-                    {renderData(panelMember)}
+                    <Table striped bordered hover size="sm">
+                        <thead>
+                            <tr>
+                                <th>PanelID</th>
+                                <th>Location</th>
+                                <th>Type</th>
+                                <th>EmployeeID</th>
+                                <th>EmployeeName</th>
+                            </tr>
+                        </thead>
+                        <hr></hr>
+                        {renderData(panelMember)}
+                    </Table>
                 </Form>
             </Jumbotron>
         </div>
@@ -82,26 +93,15 @@ const DeletePanelMember = (props) => {
             const EmployeeName = panelmember.employeeEntity.name;
             const { panelid, location, type } = panelmember //destructuring
             return (
-                <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th>PanelID</th>
-                            <th>Location</th>
-                            <th>Type</th>
-                            <th>EmployeeID</th>
-                            <th>EmployeeName</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{panelid}</td>
-                            <td>{location}</td>
-                            <td>{type}</td>
-                            <td>{Employeeid}</td>
-                            <td>{EmployeeName}</td>
-                        </tr>
-                    </tbody>
-                </Table>
+                <tbody>
+                    <tr>
+                        <td>{panelid}</td>
+                        <td>{location}</td>
+                        <td>{type}</td>
+                        <td>{Employeeid}</td>
+                        <td>{EmployeeName}</td>
+                    </tr>
+                </tbody>
             )
         });
     }

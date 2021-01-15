@@ -2,7 +2,7 @@ import SearchCandidate from './hrservices/viewhrcandidate'
 import {Accordion, Card, Button } from 'react-bootstrap'
 //import CancelInterview from './services/cancelinterview.js'
 
-const CandidateForHR = () => {
+const CandidateForHR = (props) => {
     return (
         <div>
             {/* All underlying operations from services */}
