@@ -1,14 +1,3 @@
-//Admin Services Component : CHECK WARNING.info FOR NOTES.....
-//import InterviewSchedulerForAdmin from './interviewscheduler/InterviewSchedulerForAdmin'
-
-//import InterviewSchedulerForAdmin from './interviewscheduler/InterviewSchedulerForAdmin'
-//import PanelMemberForAdmin from './panelmember/PanelMemberForAdmin'
-
-// Bootstrap
-
-
-
-
 import PanelMemberForHR from './panelmember/PanelMemberForHR'
 import SearchCandidate from './candidate/CandidateForHR';
 import InterviewSchedulerForHr from './interviewscheduler/InterviewSchedulerForHr';
@@ -25,7 +14,7 @@ const HRComponent = () => {
                 <Tab eventKey="PanelMember" title="HR INTERVIEW">
                 <SearchCandidate></SearchCandidate>
                 <PanelMemberForHR></PanelMemberForHR>
-                <InterviewSchedulerForHr></InterviewSchedulerForHr>
+                {/*<InterviewSchedulerForHr></InterviewSchedulerForHr>*/}
             
                 </Tab>
                 

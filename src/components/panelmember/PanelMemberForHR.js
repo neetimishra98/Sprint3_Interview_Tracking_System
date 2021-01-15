@@ -14,8 +14,7 @@ const PanelMemberForHR = (props) => {
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             height: "100px"
-    
-    
+
         }}>
             {/* All underlying operations from services */}
             <Accordion>
