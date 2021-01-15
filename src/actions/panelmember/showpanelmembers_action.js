@@ -5,8 +5,8 @@ const ShowPanelMemberAction = (props) => {
         let error;
         const axios = require('axios').default;
         const url = 'http://localhost:9090/cgits/panelmembers';
-        const serverResponse = await axios.get(url) //await can only be used with async function....
-            .then(response => dispatch({ type: 'SHOW_PANELMEMBER', payload: response.data }))
+        const res = await axios.get(url) //await can only be used with async function....
+            .then(response => dispatch({ type: 'SHOW_PANELMEMBER', payload: res.data }))
             .catch(error => console.log(error));
     }
 }
