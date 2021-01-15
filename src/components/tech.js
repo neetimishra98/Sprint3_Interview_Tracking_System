@@ -1,5 +1,5 @@
 
-//import CandidateForTech from './candidate/CandidateForTech'
+import CandidateForTech from './candidate/CandidateForTech'
 import InterviewSchedulerForTech from './interviewscheduler/InterviewSchedulerForTech'
 import PanelMemberForTech from './panelmember/PanelMemberForTech'
 
@@ -15,8 +15,8 @@ const TechComponent = () => {
     
             <Tab eventKey="Interviewscheduler" title="TECH Services">
             <InterviewSchedulerForTech></InterviewSchedulerForTech>
-             <PanelMemberForTech></PanelMemberForTech>
-                {/*<CandidateForTech></CandidateForTech>*/}
+            <PanelMemberForTech></PanelMemberForTech>
+            <CandidateForTech></CandidateForTech>
 
             </Tab>
             </Tabs> 
