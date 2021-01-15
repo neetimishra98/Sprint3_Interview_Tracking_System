@@ -32,8 +32,19 @@ const ShowPanelMembers = (props) => {
                     <Form.Group controlId="formGroupText">
                         <Form.Label>List All Panel Member.</Form.Label>
                     </Form.Group>
-                    <hr></hr>
-                    {renderData(panelMemberList)}
+                    <Table striped bordered hover size="sm">
+                        <thead>
+                            <tr>
+                                <th>PanelID</th>
+                                <th>Location</th>
+                                <th>Type</th>
+                                <th>EmployeeID</th>
+                                <th>Employee Name</th>
+                            </tr>
+                        </thead>
+                        <hr></hr>
+                        {renderData(panelMemberList)}
+                    </Table>
                 </Form>
             </Jumbotron>
         </div>
@@ -46,27 +57,15 @@ const ShowPanelMembers = (props) => {
             const EmployeeName = panelmember.employeeEntity.name;
             const { panelid, location, type } = panelmember //destructuring
             return (
-                <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th>PanelID</th>
-                            <th>Location</th>
-                            <th>Type</th>
-                            <th>EmployeeID</th>
-                            <th>Employee Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{panelid}</td>
-                            <td>{location}</td>
-                            <td>{type}</td>
-                            <td>{Employeeid}</td>
-                            <td>{EmployeeName}</td>
-
-                        </tr>
-                    </tbody>
-                </Table>
+                <tbody>
+                    <tr>
+                        <td>{panelid}</td>
+                        <td>{location}</td>
+                        <td>{type}</td>
+                        <td>{Employeeid}</td>
+                        <td>{EmployeeName}</td>
+                    </tr>
+                </tbody>
             )
         });
     }

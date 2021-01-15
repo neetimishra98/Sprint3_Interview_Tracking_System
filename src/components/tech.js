@@ -1,7 +1,8 @@
 
-import GiveTechRating from '../components/interviewscheduler/services/givetechrating';
-import ViewInterviewMemberForTech from '../components/interviewscheduler/services/viewinterviewmemberfortech';
-import ViewAllInterviewMembersForTech from '../components/interviewscheduler/services/viewinterviewmemberfortech';
+//import CandidateForTech from './candidate/CandidateForTech'
+import InterviewSchedulerForTech from './interviewscheduler/InterviewSchedulerForTech'
+//import PanelMemberForTech from './panelmember/PanelMemberForTech'
+
 // Bootstrap
 
 import { Tab, Tabs } from 'react-bootstrap'
@@ -12,10 +13,11 @@ const TechComponent = () => {
             <body>
             <Tabs defaultActiveKey="Home" id="uncontrolled-tab-example">
     
-            <Tab eventKey="Interviewscheduler" title="TECH Interview">
-            <ViewInterviewMemberForTech></ViewInterviewMemberForTech>
-            <ViewAllInterviewMembersForTech></ViewAllInterviewMembersForTech>
-            <GiveTechRating></GiveTechRating>
+            <Tab eventKey="Interviewscheduler" title="TECH Services">
+            <InterviewSchedulerForTech></InterviewSchedulerForTech>
+               {/* <PanelMemberForTech></PanelMemberForTech>
+                <CandidateForTech></CandidateForTech>*/}
+
             </Tab>
             </Tabs> 
             </body>
