@@ -95,10 +95,6 @@ const SurrenderAsHRPanel = (props) => {
                 </div>
             );
         }
-        else if(panelMember!==undefined  && panelMember.length!==0 ){
-            console.log("Already surrendered!");
-            <Alert>Already surrendered!</Alert>
-        
         
         if(panelMember!==undefined && panelMember===null){
             //return(<Box/>);
@@ -107,7 +103,7 @@ const SurrenderAsHRPanel = (props) => {
         }
         
     }        
-}
+
 }
 
 export default SurrenderAsHRPanel;

@@ -7,12 +7,10 @@
 // Bootstrap
 
 
-
-
 import PanelMemberForHR from './panelmember/PanelMemberForHR'
 import SearchCandidate from './candidate/CandidateForHR';
 import InterviewSchedulerForHr from './interviewscheduler/InterviewSchedulerForHr';
-
+import InterviewSchedulerForHrRating from './interviewscheduler/InterviewSchedulerForHrRating';
 
 
 import { Tab, Tabs } from 'react-bootstrap'
@@ -24,11 +22,14 @@ const HRComponent = () => {
 
                 <Tab eventKey="PanelMember" title="HR INTERVIEW">
                 <SearchCandidate></SearchCandidate>
-                <PanelMemberForHR></PanelMemberForHR>
-                <InterviewSchedulerForHr></InterviewSchedulerForHr>
-            
-                </Tab>
+                    <PanelMemberForHR></PanelMemberForHR>
+                    <br></br>
+                    <br></br>
+                    
+                    <InterviewSchedulerForHr></InterviewSchedulerForHr>
+                    <InterviewSchedulerForHrRating></InterviewSchedulerForHrRating>
                 
+                </Tab>
             </Tabs>
         </div>
     );
