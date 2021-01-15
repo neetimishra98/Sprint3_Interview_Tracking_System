@@ -15,7 +15,7 @@ const AddPanelMember = () => {
     let props_wrapper = {};
 
 
-    let employee = useSelector((state)=>state.PanelMemberReducer);
+    let employee = useSelector((state)=>state.PanelMemberReducer.panelmembers);
     let dispatcher = useDispatch();
     
     //ADD PANEL MEMBER WITH REACT USE EFFECT        
@@ -25,9 +25,9 @@ const AddPanelMember = () => {
         }
 
     function addPanelMember(){
-        loc = document.getElementById("location").value;
-        panel = document.getElementById("panel").value;
-        name = document.getElementById("name").value;
+        loc = document.getElementById("location_add").value;
+        panel = document.getElementById("panel_add").value;
+        name = document.getElementById("empname").value;
         console.log(name, loc, panel);
         post_json = { employeeEntity: null, location : loc, panelid: 10000000, type : panel };
         props_wrapper = {body: post_json, pathVar: name}
@@ -63,7 +63,7 @@ const AddPanelMember = () => {
                         <br></br>
                         <InputGroup className="mb-3">
                             <FormControl
-                            id="name"
+                            id="empname"
                             placeholder="Employee's Name"
                             aria-label="Employee's Name"
                             aria-describedby="basic-addon2"
@@ -80,7 +80,7 @@ const AddPanelMember = () => {
                                 <td>Select a Department</td>
                                 <td>
                                     <Form.Group as={Col} controlId="formGridState">
-                                        <Form.Control id="panel" as="select" defaultValue="Choose...">
+                                        <Form.Control id="panel_add" as="select" defaultValue="Choose...">
                                             <option value="null">Choose...</option>
                                             <option value="hr">Human Resources (HR)</option>
                                             <option value="tech">Technical</option>
@@ -92,7 +92,7 @@ const AddPanelMember = () => {
                                 <td>Select Location</td>
                                 <td>
                                     <Form.Group as={Col} controlId="formGridState" >
-                                        <Form.Control as="select" id="location" defaultValue="Choose...">
+                                        <Form.Control as="select" id="location_add" defaultValue="Choose...">
                                             <option value="null">Choose...</option>
                                             <option>Ahmedabad</option>
                                             <option>Aurangabad</option>
