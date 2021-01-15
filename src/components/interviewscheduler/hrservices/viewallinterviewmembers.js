@@ -1,3 +1,4 @@
+/*
 //Hr Interview Scheduler Services Component : CHECK WARNING.info FOR NOTES.....
 
 import { Form, Table, Jumbotron, Button } from 'react-bootstrap';
@@ -44,3 +45,5 @@ const ViewInterviewMembersForHr = () => {
 
 
 export default ViewInterviewMembersForHr;
+
+*/

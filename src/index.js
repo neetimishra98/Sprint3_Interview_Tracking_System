@@ -13,6 +13,8 @@ import { MDBTimePicker, MDBCol } from "mdbreact";
 import InterviewReducer from './reducers/adminInterviewReducer';
 import PanelMemberReducer from './reducers/adminPanelMemberReducer';
 import CandidateReducer from './reducers/adminCandidateReducer';
+
+
 import HRReducer from './reducers/hrReducer';
 import TechReducer from './reducers/techreducer';
 import EmployeeReducer from './reducers/adminEmployeeReducer';
