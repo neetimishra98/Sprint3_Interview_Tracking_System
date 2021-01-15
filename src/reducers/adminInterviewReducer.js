@@ -19,11 +19,7 @@ const InterviewReducer = (state={interviewschedules: [],candidates: [],panels: [
 
            //CASE TO update the Interview
            case 'UPDATE_INTERVIEW': return action.payload;
-           case 'CANCEL_INTERVIEW': return action.payload;
-
-           //CASE TO update the Interview
-           case 'UPDATE_INTERVIEW': return action.payload;
-   
+         
         default:
             return state;
     }

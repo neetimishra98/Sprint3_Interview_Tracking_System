@@ -10,17 +10,18 @@ import SearchEmployeeAction from '../../../actions/employee/searchemployee_actio
 const SearchEmployee = (props) => {
 
     var pathVar = null;
-    let employee = useSelector((state)=>state.PanelMemberReducer);
+    let employee = useSelector((state)=>state.EmployeeReducer.employees);
     let dispatcher = useDispatch();
     React.useEffect(()=>SearchEmployeeAction_Function(), [])
     const SearchEmployeeAction_Function = () => {
+        console.log(pathVar);
             dispatcher(SearchEmployeeAction(pathVar));
     }
     
     const handleSubmit = (event) =>{ 
-        pathVar = document.getElementById("pathVariable").value;
+        pathVar = document.getElementById("emptosearch").value;
         dispatcher(SearchEmployeeAction(pathVar));
-        renderData(employee);
+        // renderData(employee);
     }
 
     return (
@@ -34,7 +35,7 @@ const SearchEmployee = (props) => {
                 <Form>
                     <Form.Group controlId="formGroupText">
                         <Form.Label>Search by valid name/id</Form.Label>
-                        <Form.Control id="pathVariable" type="text" placeholder="Name or Employee ID" />
+                        <Form.Control id="emptosearch" type="text" placeholder="Name or Employee ID" />
                     </Form.Group>
                     <Button variant="dark" type="button" call onClick={handleSubmit}>
                         Search
@@ -71,7 +72,7 @@ const SearchEmployee = (props) => {
 
     function renderData(employee) {   
         console.log("employee dispatcher object returned from the server : ", employee);
-        if(employee!==undefined && employee!==null){
+        if(employee!==undefined && employee!==null && employee.length!==0){
             return(
                 <Table striped bordered hover size="sm">
                     <thead>
@@ -82,7 +83,8 @@ const SearchEmployee = (props) => {
                     </thead>
                     <tbody>
                         <tr>
-                         
+                            <td>{employee.employeeid}</td>
+                            <td>{employee.name}</td>
                         </tr>
                     </tbody>
                 </Table>

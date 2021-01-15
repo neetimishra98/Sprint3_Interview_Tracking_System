@@ -1,7 +1,5 @@
-import React from 'react'
-
-import { Form, Table, Jumbotron, Button } from 'react-bootstrap'
-
+import React, { useState } from 'react'
+import { Form, Table, Jumbotron, Button, Alert } from 'react-bootstrap'
 
 import { useDispatch, useSelector } from 'react-redux';
 import ViewInterviewMemberForTechAction from '../../../actions/interviewscheduler/viewinterviewmemberfortechaction';
@@ -9,7 +7,7 @@ import ViewInterviewMemberForTechAction from '../../../actions/interviewschedule
 const ViewInterviewMemberForTech = (props) => {
 
     var techinterviewlist = null;
-    let member = useSelector(state => state.TechReducer.viewmemberfortech);
+    let member = useSelector((state) => state.TechReducer.viewmemberfortech);
     let dispatcher = useDispatch();
     React.useEffect(()=>ViewInterviewMemberForTechAction_Function(), [])
     const ViewInterviewMemberForTechAction_Function = () => {
@@ -19,6 +17,7 @@ const ViewInterviewMemberForTech = (props) => {
     const handleSubmit = (event) =>{ 
         techinterviewlist = document.getElementById("intid").value;
         dispatcher(ViewInterviewMemberForTechAction(techinterviewlist));
+        renderData(member);
     }
 
 
@@ -61,9 +60,33 @@ const ViewInterviewMemberForTech = (props) => {
         </div>
     );
 
+
+        //Alert
+    function AlertMemberNotFound() {
+        const [show, setShow] = useState(true);
+        console.log(show, setShow);
+        if (show) {
+          return (
+            <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+              <Alert.Heading>Interview Member Not Found</Alert.Heading>
+              <p>
+              Candidate with the mentioned id was not found. Maybe you entered wrong id. Please check once!
+              </p>
+            </Alert>
+          );
+        }
+        else{
+            return (
+                <div></div>
+            );
+        }
+
+    }
+
+
     function renderData(member) {   
         console.log("interview member dispatcher object returned from the server : ", member);
-        if(member!==undefined){
+        if(member!==undefined && member!==null && member.length!==0){
             return(
                 <tr>
                     <td>{member.data.candidateid}</td>
@@ -77,6 +100,10 @@ const ViewInterviewMemberForTech = (props) => {
                     <td>{member.data.noticeperiod}</td>
                 </tr>
             );
+        }
+        if(member!==undefined && member===null){
+            console.log("called the alert");
+            return(<AlertMemberNotFound show="true"/>);
         }
     }        
 }

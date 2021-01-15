@@ -68,7 +68,7 @@ const GiveTechRating = (props) => {
     }
     function renderData(interviewmember) {   
         console.log("candidate dispatcher object returned from the server : ", interviewmember);
-        if(interviewmember!==undefined && interviewmember!==null){
+        if(interviewmember!==undefined && interviewmember!==null && interviewmember.length!==0){
             return(
                 <Table striped bordered hover size="sm">
                     <thead>

@@ -38,8 +38,20 @@ return (
                   {/* Add Candidate component */}
                   <Card.Body class="bg-custom">
                     <TechShareandschedule></TechShareandschedule>
+
+                    <Card.Header>
+                    <Accordion.Toggle as={Button}  eventKey="1">
+                        Update technical Interview
+                    </Accordion.Toggle>
+                    </Card.Header>
                     
                     <TechUpdateInterview></TechUpdateInterview>
+
+                    <Card.Header>
+                    <Accordion.Toggle as={Button}  eventKey="2">
+                        Cancel technical Interview
+                    </Accordion.Toggle>
+                    </Card.Header>
 
                     <TechCancelInterview></TechCancelInterview>
 
@@ -56,8 +68,20 @@ return (
               {/* View Candidate component */}
               <Card.Body class="bg-custom">
                     <HRShareandschedule></HRShareandschedule>
+
+                    <Card.Header>
+                    <Accordion.Toggle as={Button}  eventKey="1">
+                        Update HR Interview
+                    </Accordion.Toggle>
+                    </Card.Header>
                     
                     <HRUpdateInterview></HRUpdateInterview>
+
+                    <Card.Header>
+                    <Accordion.Toggle as={Button}  eventKey="1">
+                       Cancel HR Interview
+                    </Accordion.Toggle>
+                    </Card.Header>
 
                     <HRCancelInterview></HRCancelInterview>
 
