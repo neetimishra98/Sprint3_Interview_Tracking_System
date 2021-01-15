@@ -8,7 +8,7 @@ import SurrenderAsHRAction from '../../../actions/panelmember/surrender_as_hr';
 const SurrenderAsHRPanel = (props) => {
 
     var pathVar = null;
-    let panelMember = useSelector((state)=>state.panelmember);
+    let panelMember = useSelector((state)=>state.HRReducer.panelmembers);
     let dispatcher = useDispatch();
     React.useEffect(()=>SurrenderAsHRAction_Func(), [])
         const SurrenderAsHRAction_Func = () => {
@@ -18,7 +18,7 @@ const SurrenderAsHRPanel = (props) => {
     const handleSubmit = (event) =>{ 
         pathVar = document.getElementById("pathVar").value;
         dispatcher(SurrenderAsHRAction(pathVar));
-        renderData(panelMember);
+        //renderData(panelMember);
     }
 
     return (

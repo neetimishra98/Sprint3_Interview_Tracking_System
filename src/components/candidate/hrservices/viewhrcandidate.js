@@ -8,18 +8,20 @@ import ViewaCandidateForHRAction from '../../../actions/candidate/view_a_cand_hr
 const ViewACandidateForHR = (props) => {
 
     var pathVar = null;
-    let candidate = useSelector((state) => state.candidate);
+    let candidate = useSelector((state)=>state.HRReducer.candidates);
     let dispatcher = useDispatch();
-    React.useEffect(()=>ViewaCandidateForHRAction_Func(), [])
-    const ViewaCandidateForHRAction_Func = () => {
-        dispatcher(ViewaCandidateForHRAction(pathVar));
+    React.useEffect(()=>ViewaCandidateForHRAction_Function(), [])
+    const ViewaCandidateForHRAction_Function = () => {
+        console.log(pathVar);
+            dispatcher(ViewaCandidateForHRAction(pathVar));
     }
     
     const handleSubmit = (event) =>{ 
         pathVar = document.getElementById("pathV").value;
         dispatcher(ViewaCandidateForHRAction(pathVar));
-        renderData(candidate);
+        //renderData(candidate);
     }
+
     return (
         // All Final Operations and Functions
         <div style={{
@@ -63,8 +65,6 @@ const ViewACandidateForHR = (props) => {
                 <div></div>
             );
         }
-        
-        
     }
 
     function renderData(candidate) {   

@@ -17,7 +17,7 @@ import HRReducer from './reducers/hrReducer';
 import TechReducer from './reducers/techreducer';
 import EmployeeReducer from './reducers/adminEmployeeReducer';
 
-let allReducers = combineReducers({'CandidateReducer': CandidateReducer, 'InterviewReducer' : InterviewReducer,'PanelMemberReducer' : PanelMemberReducer, 'EmployeeReducer' : EmployeeReducer, 'TechReducer' : TechReducer});
+let allReducers = combineReducers({'CandidateReducer': CandidateReducer, 'InterviewReducer' : InterviewReducer,'PanelMemberReducer' : PanelMemberReducer, 'EmployeeReducer' : EmployeeReducer, 'TechReducer' : TechReducer, 'HRReducer' : HRReducer});
 let store = createStore(allReducers,applyMiddleware(ReduxThunk));
 store.subscribe(()=>console.log('Store state: ' ,store.getState()));
 
