@@ -7,7 +7,7 @@ const ViewaCandidateForHRAction = (props)=> {
         var onLoad = 0;
         const axios = require('axios').default;
         console.log(props);
-        const url = 'http://localhost:9090/cgits/candidate/hr/'+props;
+        const url = 'http://localhost:9091/cgits/candidate/hr/'+props;
         const serverResponse = await axios.get(url) //await can only be used with async function....
         .then(response => dispatch({type: 'VIEW_A_CANDIDATE_FOR_HR', payload: response.data}))
         .catch(error => console.log(err=error));

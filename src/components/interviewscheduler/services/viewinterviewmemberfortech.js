@@ -7,7 +7,7 @@ import ViewInterviewMemberForTechAction from '../../../actions/interviewschedule
 const ViewInterviewMemberForTech = (props) => {
 
     var techinterviewlist = null;
-    let member = useSelector((state) => state.TechReducer.viewmemberfortech);
+    let member = useSelector(state => state.TechReducer.viewmemberfortech);
     let dispatcher = useDispatch();
     React.useEffect(()=>ViewInterviewMemberForTechAction_Function(), [])
     const ViewInterviewMemberForTechAction_Function = () => {
@@ -20,49 +20,31 @@ const ViewInterviewMemberForTech = (props) => {
         renderData(member);
     }
 
-
     return (
         // All Final Operations and Functions
         <div style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center"
-        }}>
-            <Jumbotron style={{ width: 700 }}>
+          }}>
+            <Jumbotron style={{width: 700}}>
                 <Form>
                     <Form.Group controlId="formGroupText">
-                        <Form.Label> View Candidate Using interviewid</Form.Label>
-                        <Form.Control id="intid" type="text" placeholder="Interview ID"/>
-                        <br></br>
-                        <br></br>
-                        <Button variant="dark" type="button" call onClick={handleSubmit}>
-                            Search
-                        </Button>
-                    </Form.Group>
-                    <Table striped bordered hover size="sm">
-                        <thead>
-                            <th>Candidate ID</th>
-                            <th>Candidate Name</th>
-                            <th>Location</th>
-                            <th>Qualification</th>
-                            <th>Designation</th>
-                            <th>Experience</th>
-                            <th>Primary<br></br>Skills</th>
-                            <th>Secondary <br></br>Skills</th>
-                            <th>Notice <br></br>Period</th>
-                        </thead>
-                        <tbody id="table_content">
+                        <Form.Label>View Candidate Using interviewid</Form.Label>
+                        <Form.Control id="intid" type="text" placeholder="Interview ID" />
+                        </Form.Group>
+                    <Button variant="dark" type="button" call onClick={handleSubmit}>
+                        Search
+                    </Button>
+                    <hr></hr>
                         {renderData(member)}
-                        </tbody>
-                    </Table>
                 </Form>
             </Jumbotron>
         </div>
     );
 
-
-        //Alert
-    function AlertMemberNotFound() {
+    //Alert
+    function AlertMemberNotFoundTech() {
         const [show, setShow] = useState(true);
         console.log(show, setShow);
         if (show) {
@@ -70,7 +52,7 @@ const ViewInterviewMemberForTech = (props) => {
             <Alert variant="danger" onClose={() => setShow(false)} dismissible>
               <Alert.Heading>Interview Member Not Found</Alert.Heading>
               <p>
-              Candidate with the mentioned id was not found. Maybe you entered wrong id. Please check once!
+              Candidate with the mentioned interview id was not found. Maybe you entered wrong id. Please check once!
               </p>
             </Alert>
           );
@@ -82,30 +64,48 @@ const ViewInterviewMemberForTech = (props) => {
         }
 
     }
-
-
     function renderData(member) {   
-        console.log("interview member dispatcher object returned from the server : ", member);
+        console.log("candidate dispatcher object returned from the server : ", member);
         if(member!==undefined && member!==null && member.length!==0){
             return(
-                <tr>
-                    <td>{member.data.candidateid}</td>
-                    <td>{member.data.candidatename}</td>
-                    <td>{member.data.location}</td>
-                    <td>{member.data.qualification}</td>
-                    <td>{member.data.designation}</td>
-                    <td>{member.data.experience}</td>
-                    <td>{member.data.primaryskills}</td>
-                    <td>{member.data.secondaryskills}</td>
-                    <td>{member.data.noticeperiod}</td>
-                </tr>
+                <Table striped bordered hover size="sm">
+                    <thead>
+                        <tr>
+                            <th>Candidate ID</th>
+                            <th>Candidate Name</th>
+                            <th>Location</th>
+                            <th>Qualification</th>
+                            <th>Designation</th>
+                            <th>Experience</th>
+                            <th>Primary<br></br>Skills</th>
+                            <th>Secondary <br></br>Skills</th>
+                            <th>Notice <br></br>Period</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{member.data.candidateid}</td>
+                            <td>{member.data.candidatename}</td>
+                            <td>{member.data.location}</td>
+                            <td>{member.data.qualification}</td>
+                            <td>{member.data.designation}</td>
+                            <td>{member.data.experience}</td>
+                            <td>{member.data.primaryskills}</td>
+                            <td>{member.data.secondaryskills}</td>
+                            <td>{member.data.noticeperiod}</td>
+                            
+                        </tr>
+                        </tbody>
+                </Table>
             );
         }
+
         if(member!==undefined && member===null){
-            console.log("called the alert");
-            return(<AlertMemberNotFound show="true"/>);
+            console.log("called the alert for tech");
+            return(<AlertMemberNotFoundTech show="true"/>);
         }
     }        
+
 }
 
 export default ViewInterviewMemberForTech;

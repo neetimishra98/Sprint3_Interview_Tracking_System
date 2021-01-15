@@ -8,18 +8,25 @@ import ViewaCandidateForHRAction from '../../../actions/candidate/view_a_cand_hr
 const ViewACandidateForHR = (props) => {
 
     var pathVar = null;
+
+
+
     let candidate = useSelector((state)=>state.HRReducer.candidates);
     let dispatcher = useDispatch();
     React.useEffect(()=>ViewaCandidateForHRAction_Function(), [])
     const ViewaCandidateForHRAction_Function = () => {
         console.log(pathVar);
             dispatcher(ViewaCandidateForHRAction(pathVar));
+
     }
     
     const handleSubmit = (event) =>{ 
         pathVar = document.getElementById("pathV").value;
         dispatcher(ViewaCandidateForHRAction(pathVar));
+
+        renderData(candidate);
         //renderData(candidate);
+
     }
 
     return (
@@ -65,11 +72,13 @@ const ViewACandidateForHR = (props) => {
                 <div></div>
             );
         }
+        
+        
     }
 
     function renderData(candidate) {   
         console.log("candidate dispatcher object returned from the server : ", candidate);
-        if(candidate!==undefined && candidate!==null){
+        if(candidate!==undefined && candidate!==null && candidate.length!==0){
             return(
                 <Table striped bordered hover size="sm">
                     <thead>
@@ -88,6 +97,16 @@ const ViewACandidateForHR = (props) => {
                     </thead>
                     <tbody>
                         <tr>
+                            <td>{candidate.data.candidateid}</td>
+                            <td>{candidate.data.candidatename}</td>
+                            <td>{candidate.data.location}</td>
+                            <td>{candidate.data.qualification}</td>
+                            <td>{candidate.data.designation}</td>
+                            <td>{candidate.data.experience}</td>
+                            <td>{candidate.data.primaryskills}</td>
+                            <td>{candidate.data.secondaryskills}</td>
+                            <td>{candidate.data.noticeperiod}</td>
+
                             <td>{candidate.candidateid}</td>
                             <td>{candidate.candidatename}</td>
                             <td>{candidate.location}</td>

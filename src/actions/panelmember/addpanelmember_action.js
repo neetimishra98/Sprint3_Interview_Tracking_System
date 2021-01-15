@@ -7,9 +7,9 @@ const AddPanelMemberAction = (props)=> {
         const axios = require('axios').default;
         if(props!=null){
             console.log(props.pathVar, props.body);
-            const url = 'http://localhost:8080/cgits/panelmember/'+props.pathVar;
+            const url = 'http://localhost:9090/cgits/panelmember/'+props.pathVar;
             const serverResponse = await axios.post(url, props.body) //await can only be used with async function....
-            .then(response => dispatch({type: 'ADD_PANEL_MEMBER', payload: response}))
+            .then(response => dispatch({type: 'ADD_PANEL_MEMBER', payload: response.data}))
             .catch(error => console.log(err=error));
             
             console.log(serverResponse);

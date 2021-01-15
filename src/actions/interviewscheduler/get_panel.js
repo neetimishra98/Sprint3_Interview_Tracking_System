@@ -1,7 +1,7 @@
 let showPanelAction = () => {
     return async function (dispatch) {
         const res = await fetch(
-          "http://localhost:9090/cgits/panelmembers"
+          "http://localhost:8080/cgits/panelmembers"
           );
           const data = await res.json();
           console.log("showPanelAction ", data);
