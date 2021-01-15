@@ -1,4 +1,4 @@
-const HRReducer = (state= { panelmembers: [], candidates: [],ratinglistcandidate: [],viewmemberforhr: [] }, action) => {
+const HRReducer = (state= { panelmembers: [], candidates: [],ratinglistcandidate: [],viewmemberforhr: [] ,viewmemberlistforhr: []}, action) => {
 
     switch(action.type){
 
@@ -33,6 +33,14 @@ const HRReducer = (state= { panelmembers: [], candidates: [],ratinglistcandidate
                 return state;
            //return action.payload;
 
+
+             //case to view all list of hr members
+                        case 'VIEW_INTERVIEW_LIST_FOR_HR':
+                            state.viewmemberlistforhr=action.payload
+                         console.log('VIEW_INTERVIEW_LIST_FOR_HR',state.viewmemberlistforhr)
+                           return state;
+                      //return action.payload;
+           
 
         default:
             return state;
