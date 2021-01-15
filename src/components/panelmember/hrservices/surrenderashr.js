@@ -8,7 +8,7 @@ import SurrenderAsHRAction from '../../../actions/panelmember/surrender_as_hr';
 const SurrenderAsHRPanel = (props) => {
 
     var pathVar = null;
-    let panelMember = useSelector((state)=>state);
+    let panelMember = useSelector((state)=>state.HRReducer.panelmember);
     let dispatcher = useDispatch();
     React.useEffect(()=>SurrenderAsHRAction_Func(), [])
         const SurrenderAsHRAction_Func = () => {
@@ -72,7 +72,7 @@ const SurrenderAsHRPanel = (props) => {
 
     function renderData(panelMember) {   
         console.log("panel member dispatcher object returned from the server : ", panelMember);
-        if(panelMember!==undefined && panelMember!==null){
+        if(panelMember!==undefined && panelMember!==null && panelMember.length!==0){
             console.log("Surrendered successfully!");
             return(
                 <div>
@@ -96,7 +96,7 @@ const SurrenderAsHRPanel = (props) => {
                 </div>
             );
         }
-        else if(panelMember!==undefined && panelMember.data.type!==null){
+        else if(panelMember!==undefined  && panelMember.length!==0 ){
             console.log("Already surrendered!");
             <Alert>Already surrendered!</Alert>
         }
