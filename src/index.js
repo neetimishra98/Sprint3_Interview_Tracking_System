@@ -13,11 +13,12 @@ import { MDBTimePicker, MDBCol } from "mdbreact";
 import InterviewReducer from './reducers/adminInterviewReducer';
 import PanelMemberReducer from './reducers/adminPanelMemberReducer';
 import CandidateReducer from './reducers/adminCandidateReducer';
+import EmployeeReducer from './reducers/adminEmployeeReducer';
 
 
 
 
-let allReducers = combineReducers({'CandidateReducer': CandidateReducer, 'InterviewReducer' : InterviewReducer,'PanelMemberReducer' : PanelMemberReducer});
+let allReducers = combineReducers({'CandidateReducer': CandidateReducer, 'InterviewReducer' : InterviewReducer,'PanelMemberReducer' : PanelMemberReducer, 'EmployeeReducer' : EmployeeReducer});
 let store = createStore(allReducers,applyMiddleware(ReduxThunk));
 store.subscribe(()=>console.log('Store state: ' ,store.getState()));
 
