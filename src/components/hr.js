@@ -7,8 +7,6 @@
 // Bootstrap
 
 
-
-
 import PanelMemberForHR from './panelmember/PanelMemberForHR'
 import SearchCandidate from './candidate/CandidateForHR';
 import InterviewSchedulerForHr from './interviewscheduler/InterviewSchedulerForHr';

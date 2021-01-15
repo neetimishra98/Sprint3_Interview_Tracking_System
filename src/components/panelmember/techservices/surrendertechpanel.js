@@ -1,28 +1,24 @@
 import { render } from '@testing-library/react';
 import React, { useState } from 'react'
-import { Form, Table, Jumbotron, Button, Alert } from 'react-bootstrap'
+import { Form, Table, Jumbotron, Button, Modal, Alert } from 'react-bootstrap'
 
 import { useDispatch, useSelector } from 'react-redux';
-import SurrenderAsHRAction from '../../../actions/panelmember/surrender_as_hr';
+import SurrenderAsATechAction from '../../../actions/panelmember/surrender_as_tech_action';
 
-const SurrenderAsHRPanel = (props) => {
+const SurrenderAsTechPanel = (props) => {
 
     var pathVar = null;
-
-
-
-    let panelMember = useSelector((state)=>state.HRReducer.panelmembers);
-
+    let panelMember = useSelector((state)=>state.TechReducer.panelmembers);
     let dispatcher = useDispatch();
-    React.useEffect(()=>SurrenderAsHRAction_Func(), [])
-        const SurrenderAsHRAction_Func = () => {
-            dispatcher(SurrenderAsHRAction(pathVar));
-        }
+    React.useEffect(()=>SurrenderAsATechAction_Func(), [])
+    const SurrenderAsATechAction_Func = () => {
+           dispatcher(SurrenderAsATechAction(pathVar));
+    }
     
     const handleSubmit = (event) =>{ 
-        pathVar = document.getElementById("pathVar").value;
-        dispatcher(SurrenderAsHRAction(pathVar));
-        //renderData(panelMember);
+        pathVar = document.getElementById("pathVariable").value;
+        dispatcher(SurrenderAsATechAction(pathVar));
+        renderData(panelMember);
     }
 
     return (
@@ -36,7 +32,7 @@ const SurrenderAsHRPanel = (props) => {
                 <Form>
                     <Form.Group controlId="formGroupText">
                         <Form.Label>Enter your Panel ID</Form.Label>
-                        <Form.Control id="pathVar" type="text" placeholder="Panel ID" />
+                        <Form.Control id="pathVariable" type="text" placeholder="Panel ID" />
                     </Form.Group>
                     <Button variant="dark" type="button" call onClick={handleSubmit}>
                         Surrender
@@ -48,16 +44,16 @@ const SurrenderAsHRPanel = (props) => {
         </div>
     );
 
-    //ALERT
-    function AlertPanelMemberNotFound() {
+      //ALERT
+    function AlertPanelNotFound() {
         const [show, setShow] = useState(true);
         console.log(show, setShow);
         if (show) {
           return (
             <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-              <Alert.Heading>Panel Member Not Found</Alert.Heading>
+              <Alert.Heading>Panel member Not Found</Alert.Heading>
               <p>
-                Panel Member with the mentioned panel id was not found. Maybe you entered wrong panel id. Please check once!
+                Panel member with the mentioned id was not found. Maybe you entered wrong name/id. Please check once!
               </p>
             </Alert>
           );
@@ -67,43 +63,44 @@ const SurrenderAsHRPanel = (props) => {
                 <div></div>
             );
         }
-      }
+        
+        
+    }
 
     function renderData(panelMember) {   
         console.log("panel member dispatcher object returned from the server : ", panelMember);
         if(panelMember!==undefined && panelMember!==null && panelMember.length!==0){
-            console.log("Surrendered successfully!");
             return(
                 <div>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
-                            <th>Panel ID</th>
+                            <th>ID</th>
                             <th>Location</th>
                             <th>Type</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{panelMember.panelid}</td>
-                            <td>{panelMember.location}</td>
-                            <td>{panelMember.type}</td>
+                            <td>{panelMember.data.panelid}</td>
+                            <td>{panelMember.data.location}</td>
+                            <td>{panelMember.data.type}</td>
                         </tr>
                     </tbody>
                 </Table>
-                <Alert><Alert.Heading>Surrendered Successfully!</Alert.Heading></Alert>
-                </div>
+            {/*<Alert><Alert.Heading>Surrendered Successfully!</Alert.Heading></Alert>*/}
+            </div>
+
             );
         }
-        
+      
         if(panelMember!==undefined && panelMember===null){
-            //return(<Box/>);
             console.log("called the alert");
-            return(<AlertPanelMemberNotFound show="true"/>);
+            return(<AlertPanelNotFound show="true"/>);
         }
-        
     }        
-
 }
 
-export default SurrenderAsHRPanel;
+export default SurrenderAsTechPanel;
+
+
