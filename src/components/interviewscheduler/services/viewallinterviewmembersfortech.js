@@ -39,8 +39,10 @@ const ViewAllInterviewMembersForTech = (props) => {
                                 <th>Interview Id</th>
                                 <th>Date</th>
                                 <th>End Time</th>
-                                <th>EmployeeID</th>
-                                <th>Employee Name</th>
+                                <th>Final Status</th>
+                                <th>Tech Rating</th>
+                                <th>Location</th>
+                                <th>Start Time</th>
                             </tr>
                         </thead>
                         <hr></hr>
@@ -53,18 +55,20 @@ const ViewAllInterviewMembersForTech = (props) => {
 
     function renderData(intmemberList) {
         console.log("panel member dispatcher object returned from the server : ", intmemberList);
-        return intmemberList.map((intmemberList, index) => {
-            const Employeeid = panelmember.employeeEntity.employeeid;
-            const EmployeeName = panelmember.employeeEntity.name;
-            const { panelid, location, type } = panelmember //destructuring
+        return intmemberList.map((intmember, index) => {
+            //const Employeeid = panelmember.employeeEntity.employeeid;
+            //const EmployeeName = panelmember.employeeEntity.name;
+            const { interviewid, date, endtime,finalstatus,techrating,location ,starttime} = intmember //destructuring
             return (
                 <tbody>
                     <tr>
-                        <td>{panelid}</td>
+                        <td>{interviewid}</td>
+                        <td>{date}</td>
+                        <td>{endtime}</td>
+                        <td>{finalstatus}</td>
+                        <td>{techrating}</td>
                         <td>{location}</td>
-                        <td>{type}</td>
-                        <td>{Employeeid}</td>
-                        <td>{EmployeeName}</td>
+                        <td>{starttime}</td>
                     </tr>
                 </tbody>
             )

@@ -1,11 +1,25 @@
 import GiveTechRating from './services/givetechrating';
 import ViewInterviewMemberForTech from './services/viewinterviewmemberfortech';
+import ViewAllInterviewMembersForTech from './services/viewallinterviewmembersfortech'
 import { Accordion, Card, Button } from 'react-bootstrap';
 
 const InterviewSchedulerForTech = () => {
     return (
         <div>
              <Accordion>
+
+             <Card>
+                    <Card.Header>
+                    <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                        View All Interview Member 
+                    </Accordion.Toggle>
+                    </Card.Header>
+                    <Accordion.Collapse eventKey="1">
+                    {/* Fetch all Employee component */}
+                    <Card.Body><ViewAllInterviewMembersForTech></ViewAllInterviewMembersForTech></Card.Body>
+                    {/* Fetch all Employee component */}
+                    </Accordion.Collapse>
+                </Card>
                 
                 <Card>
                     <Card.Header>

@@ -71,12 +71,13 @@ const GiveHrRating = (props) => {
     }
     function renderData(interviewmember) {   
         console.log("interview member with rating dispatcher object returned from the server : ", interviewmember);
-        if(interviewmember!==undefined && interviewmember!==null  && interviewmember.length!==0){
+        if(interviewmember!==undefined && interviewmember!==null  && interviewmember.length!==0) {
 
             return(
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
+                            
                             <th>Interview ID</th>
                             <th>Location</th>
                             <th>Date</th>

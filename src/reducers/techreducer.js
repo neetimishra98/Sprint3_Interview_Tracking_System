@@ -1,4 +1,6 @@
-const TechReducer = (state= {viewmemberfortech: [],ratinglistcandidate: [],panelmembers: [],viewalltech:[]}, action) => {
+
+//const TechReducer = (state= {viewmemberfortech: [],ratinglistcandidate: [],panelmembers: [],viewalltech:[]}, action) => {
+const TechReducer = (state= {viewmemberfortech: [],ratinglistcandidate: [],panelmembers: [], candidates: [],viewalltech:[]}, action) => {
     switch(action.type){
 
         //case to view all members
@@ -26,10 +28,21 @@ const TechReducer = (state= {viewmemberfortech: [],ratinglistcandidate: [],panel
          return state;
          //return action.payload;
 
-         case '':
+        /* case '':
              state.viewalltech=action.payload;
              console.log('',state.viewalltech);
-             return state;
+             return state;*/
+        //CASE TO VIEW A CANDIDATE FOR HR
+        case 'VIEW_A_CANDIDATE_FOR_TECH': 
+        state.candidates = action.payload;
+        console.log('VIEW_A_CANDIDATE_FOR_TECH', state.candidates);
+        return state;
+        //return action.payload;
+
+        case 'VIEW_ALL_INT_MEMBER_FOR_TECH':
+            state.viewalltech=action.payload;
+            console.log('viewalltech',state.viewalltech);
+            return state;
 
         default:
             return state;

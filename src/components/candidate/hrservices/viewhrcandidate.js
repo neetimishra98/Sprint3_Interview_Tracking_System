@@ -97,16 +97,6 @@ const ViewACandidateForHR = (props) => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{candidate.data.candidateid}</td>
-                            <td>{candidate.data.candidatename}</td>
-                            <td>{candidate.data.location}</td>
-                            <td>{candidate.data.qualification}</td>
-                            <td>{candidate.data.designation}</td>
-                            <td>{candidate.data.experience}</td>
-                            <td>{candidate.data.primaryskills}</td>
-                            <td>{candidate.data.secondaryskills}</td>
-                            <td>{candidate.data.noticeperiod}</td>
-
                             <td>{candidate.candidateid}</td>
                             <td>{candidate.candidatename}</td>
                             <td>{candidate.location}</td>
