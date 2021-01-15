@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const GiveTechRatingAction = (props)=> {
+
     return async function(dispatch){
         var err = null;
         var onLoad = 0;
@@ -14,6 +15,6 @@ const GiveTechRatingAction = (props)=> {
             dispatch({type: 'GIVE_TECH_RATING', payload: null});
         }
     }
-}
 
+}
 export default GiveTechRatingAction;

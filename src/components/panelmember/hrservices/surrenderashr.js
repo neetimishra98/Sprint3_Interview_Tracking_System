@@ -8,7 +8,7 @@ import SurrenderAsHRAction from '../../../actions/panelmember/surrender_as_hr';
 const SurrenderAsHRPanel = (props) => {
 
     var pathVar = null;
-    let panelMember = useSelector((state)=>state);
+    let panelMember = useSelector((state)=>state.panelmember);
     let dispatcher = useDispatch();
     React.useEffect(()=>SurrenderAsHRAction_Func(), [])
         const SurrenderAsHRAction_Func = () => {
@@ -24,15 +24,10 @@ const SurrenderAsHRPanel = (props) => {
     return (
         // All Final Operations and Functions
         <div style={{
+            display: "flex",
             justifyContent: "center",
-            alignItems: "center",
-            backgroundImage:`url(/logo.png)`,
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            height: "100px"
-    
-    
-        }}>
+            alignItems: "center"
+          }}>
             <Jumbotron style={{width: 700}}>
                 <Form>
                     <Form.Group controlId="formGroupText">
@@ -96,10 +91,7 @@ const SurrenderAsHRPanel = (props) => {
                 </div>
             );
         }
-        else if(panelMember!==undefined && panelMember.data.type!==null){
-            console.log("Already surrendered!");
-            <Alert>Already surrendered!</Alert>
-        }
+        
         if(panelMember!==undefined && panelMember===null){
             //return(<Box/>);
             console.log("called the alert");
