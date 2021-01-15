@@ -14,10 +14,8 @@ const AddPanelMember = () => {
 
     let props_wrapper = {};
 
-
-    let employee = useSelector((state)=>state.PanelMemberReducer.panelmembers);
+    let panelMemberResponse = useSelector((state)=>state.PanelMemberReducer.panelupdate);
     let dispatcher = useDispatch();
-    
     //ADD PANEL MEMBER WITH REACT USE EFFECT        
     React.useEffect(()=>AddPanelMemberAction_Function(), [])
         const AddPanelMemberAction_Function = () => {
@@ -33,17 +31,17 @@ const AddPanelMember = () => {
         props_wrapper = {body: post_json, pathVar: name}
         if(loc!="null" && panel!="null"){
             dispatcher(AddPanelMemberAction(props_wrapper));
-            confirmAddition(employee);
+            confirmAddition(panelMemberResponse);
         }
         else{
-            employee = null;
-            confirmAddition(employee);
+            panelMemberResponse = null;
+            confirmAddition(panelMemberResponse);
         }
     }
 
     function clearAlerts(){
-        employee = undefined;
-        confirmAddition(employee);
+        panelMemberResponse = undefined;
+        confirmAddition(panelMemberResponse);
     }
 
 
@@ -132,27 +130,28 @@ const AddPanelMember = () => {
 
                 {/* Response  */}
                 <div>
-                    {confirmAddition(employee)}
+                    {confirmAddition(panelMemberResponse)}
                 </div>
             </Jumbotron>
         </div>
     );
 
 
-    function confirmAddition(employee){
-        console.log(employee);
-        if(employee!==null && employee!==undefined){
+    function confirmAddition(panelMemberResponse){
+        console.log(panelMemberResponse);
+        
+        if(panelMemberResponse!==null && panelMemberResponse!==undefined  && panelMemberResponse.length!==0){
             console.log("Added the specified panel member to the database");
             return(
                 <Alert variant="success">
                 <Alert.Heading>SUCCESSFULLY added the panel member</Alert.Heading>
                 <p>
-                    The Panel Member Was Added Successfully! Check "SHOW_PANEL_MEMBERS" to view all.
+                    The Panel Member Was Added Successfully!
                 </p>
                 </Alert>
             );
         }
-        if(employee===null&& employee!==undefined){
+        if(panelMemberResponse===[] && post_json!==null){
             return(
                 <Alert variant="danger">
                 <Alert.Heading>FAILED to add panel member</Alert.Heading>
@@ -162,8 +161,7 @@ const AddPanelMember = () => {
                 </Alert>
             );
         }
-        if(employee===undefined){
-            console.log("Alerts Cleared");
+        if(panelMemberResponse===[] || panelMemberResponse===null){
             return(
                 <div></div>
             );
