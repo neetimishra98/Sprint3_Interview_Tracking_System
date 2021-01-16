@@ -1,34 +1,155 @@
 import { Form, Table, Jumbotron, Button } from 'react-bootstrap'
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 import viewByAllAction from '../../../actions/candidate/adminactions/viewByAllAction'
 import viewByNameAction from '../../../actions/candidate/adminactions/viewByNameAction'
 import viewByLocationAction from '../../../actions/candidate/adminactions/viewByLocationAction'
 import viewByQualificationAction from '../../../actions/candidate/adminactions/viewByQualificationAction'
 import viewByDesignationAction from '../../../actions/candidate/adminactions/viewByDesignationAction'
 import viewByPrimarySkillsAction from '../../../actions/candidate/adminactions/viewByPrimarySkillsAction'
-import viewByIdAction from '../../../actions/candidate/adminactions/viewByIdAction'
+
+import getDistinctNameAction from '../../../actions/candidate/adminactions/getDistinctNameAction'
+import getDistinctDesignationAction from '../../../actions/candidate/adminactions/getDistinctDesignationAction'
+import getDistinctLocationAction from '../../../actions/candidate/adminactions/getDistinctLocationAction'
+import getDistinctPrimarySkillAction from '../../../actions/candidate/adminactions/getDistinctPrimarySkillAction'
+import getDistinctQualificationAction from '../../../actions/candidate/adminactions/getDistinctQualificationAction'
 
 let dispatch;
-const ViewCandidate = () => {
+let selectedview;
+let selectedOption;
+const ViewCandidate = (props) => {
 
-    let candidateList = useSelector(state => state.CandidateReducer.candidates);
+  let [filter, setFilter] = useState();
+  let [initialState, setInitialState] = useState();
+  let candidateList = useSelector(state => state.CandidateReducer.candidates);
+  let filterList = useSelector(state => state.CandidateReducer.filter);
   
    dispatch = useDispatch();
 
-  React.useEffect(() => {
+  
+/*React.useEffect(() => {
       CandidateList()
     }, []);
   
     const CandidateList = () => {
       //dispatch()
-    }
+    }*/
 
-  console.log("candidateListsssssssssssssss: ", candidateList);
+  console.log("candidateLists: ", candidateList);
   if(!Array.isArray(candidateList)) {
-      candidateList = [candidateList];
+      candidateList = [];
       console.log("Set candidateList to blank array");
   }
+
+  if(!Array.isArray(filterList)) {
+    
+    filterList=[];
+    console.log("Set candidateList to blank array");
+}
+
+
+const searchHandleChange = (event) => {
+  selectedOption = event.target.value;
+  console.log("Selected option: " + selectedOption);
+  if(selectedOption === "Name") {
+      dispatch(getDistinctNameAction())
+      .then((response) => {
+          console.log("REsponse: ", response);
+          console.log("filterList: ", filterList);
+          setFilter(filterList);
+      });
+  } else if(selectedOption === "Location") {
+      dispatch(getDistinctLocationAction())
+      .then((response) => {
+          console.log("REsponse: ", response);
+          console.log("filterList: ", filterList);
+          setFilter(filterList);
+      });
+  } else if(selectedOption === "Qualification") {
+      dispatch(getDistinctQualificationAction())
+      .then((response) => {
+          console.log("REsponse: ", response);
+          console.log("filterList: ", filterList);
+          setFilter(filterList);
+      });
+  }
+  else if(selectedOption === "Designation") {
+    dispatch(getDistinctDesignationAction())
+    .then((response) => {
+        console.log("REsponse: ", response);
+        console.log("filterList: ", filterList);
+        setFilter(filterList);
+    });
+}
+else if(selectedOption === "Primary Skills"){
+  dispatch(getDistinctPrimarySkillAction())
+  .then((response) => {
+      console.log("REsponse: ", response);
+      console.log("filterList: ", filterList);
+      setFilter(filterList);
+  });
+}
+}
+
+
+function handleSearch(event) {
+  event.preventDefault();
+  if(selectedOption==="All"){
+    dispatch(viewByAllAction())
+    .then((response) => {
+      console.log("Response: ", response);
+      console.log("List: ", candidateList);
+      setInitialState(candidateList);
+  });
+}
+ else if(selectedOption==="Name"){
+    dispatch(viewByNameAction(selectedview))
+    .then((response) => {
+      console.log("Response: ", response);
+      console.log("List: ", candidateList);
+      setInitialState(candidateList);
+  });
+  }else if(selectedOption==="Location")
+  {
+    dispatch(viewByLocationAction(selectedview))
+    .then((response) => {
+      console.log("Response: ", response);
+      console.log("List: ", candidateList);
+      setInitialState(candidateList);
+  });
+  }else if(selectedOption==="Qualification")
+  {
+    dispatch(viewByQualificationAction(selectedview))
+    .then((response) => {
+      console.log("Response: ", response);
+      console.log("List: ", candidateList);
+      setInitialState(candidateList);
+  });
+  }else if(selectedOption==="Designation")
+  {
+    dispatch(viewByDesignationAction(selectedview))
+    .then((response) => {
+      console.log("Response: ", response);
+      console.log("List: ", candidateList);
+      setInitialState(candidateList);
+  });
+  }
+  else if(selectedOption==="Primary Skills")
+  {
+    dispatch(viewByPrimarySkillsAction(selectedview))
+    .then((response) => {
+      console.log("Response: ", response);
+      console.log("List: ", candidateList);
+      setInitialState(candidateList);
+  });
+  }
+}
+
+
+
+
+
 
 
     return (
@@ -40,28 +161,31 @@ const ViewCandidate = () => {
         }}>
             <Jumbotron style={{ width: 700 }}>
                 <Form onSubmit={handleSearch}>
-                    <Form.Group controlId="formGroupText" >
-                        <Form.Label><b>View Candidate Details</b></Form.Label>
+                    <Form.Group controlId="formGroupText">
+                        <Form.Label>View Candidate Details</Form.Label>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicView">
                         <Form.Label for="view">View By</Form.Label>
-                        <Form.Control as="select" id="view">
-                            <option value="All">All</option>
-                            <option value="Name">Name</option>
-                            <option value="Location">Location</option>
-                            <option value="Qualification">Qualification</option>
-                            <option value="Designation">Designation</option>
-                            <option value="Primary Skills">Primary Skills</option>
-                            <option value="ID">ID</option>
+                        <Form.Control as="select" id="view" onChange={searchHandleChange} required>
+                            <option>Select View By</option>
+                            <option>All</option>
+                            <option>Name</option>
+                            <option>Location</option>
+                            <option>Qualification</option>
+                            <option>Designation</option>
+                            <option>Primary Skills</option>
                         </Form.Control>
 
-                        <Form.Group controlId="formBasicName" >
-                            <Form.Label>Enter Value</Form.Label>
-                            <Form.Control type="text" id="name" name="name" placeholder="Enter Value" />
-                        </Form.Group>
+                        <Form.Group controlId="formBasicName">
+                            <Form.Label for="view">Filter</Form.Label>
+                            <Form.Control as="select" id="filter" onChange={filterHandleChange}>
+                              <option>select</option>
+                              {renderFilterList(filterList)}       
+                            </Form.Control>
+                       </Form.Group>
 
-                        <Form.Group>
+                      <Form.Group>
                             <Button variant="dark" type="submit">
                                 View
                     </Button>
@@ -114,47 +238,21 @@ function renderTableData(candidateList) {
     })
   };
   
-  
-  
-  function handleSearch(event) {
-    event.preventDefault();
-    const data = new FormData(event.target);
-   
-    console.log("In handle submit:",data)
-    const value = data.get('name');
-  
-   var e = document.getElementById("view");
-  var selected = e.options[e.selectedIndex].value;
-   console.log("value :",value);
-   console.log("view selected",selected);
-    if(selected==="All")
-    {
-        dispatch(viewByAllAction());
-    }else if(selected==="Name")
-    {
-        
-      dispatch(viewByNameAction(value));
-    }else if(selected==="Location")
-    {
-      dispatch(viewByLocationAction(value));
-    }else if(selected==="Qualification")
-    {
-      dispatch(viewByQualificationAction(value));
-    }
-    else if(selected==="Designation")
-    {
-      dispatch(viewByDesignationAction(value));
-    }
-    else if(selected==="Primary Skills")
-    {
-      dispatch(viewByPrimarySkillsAction(value));
-    }
-    else if(selected==="ID")
-    {
-      console.log("IDeeeeeeeeeee",value);
-      dispatch(viewByIdAction(value));
-    }
-    
-  }
 
-export default ViewCandidate;
+  function filterHandleChange(event) {
+    selectedview = event.target.value
+    console.log("Selected view: " + selectedview);
+  }
+  
+  function renderFilterList(filterList) {
+    console.log("filterList", filterList);
+    return filterList.map((value) => {
+        return (
+            <option value = {value}>{value}</option>
+        )
+    })
+  }
+  
+  
+
+ export default ViewCandidate;

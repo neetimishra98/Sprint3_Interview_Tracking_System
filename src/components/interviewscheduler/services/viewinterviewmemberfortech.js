@@ -1,111 +1,82 @@
-import React, { useState } from 'react'
-import { Form, Table, Jumbotron, Button, Alert } from 'react-bootstrap'
+import React from 'react';
+import { Form, Table, Jumbotron, Button } from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
+import ViewAllInterviewMembersForTechAction from '../../../actions/interviewscheduler/viewinterviewmemberfortechaction'
 
-import { useDispatch, useSelector } from 'react-redux';
-import ViewInterviewMemberForTechAction from '../../../actions/interviewscheduler/viewinterviewmemberfortechaction';
 
-const ViewInterviewMemberForTech = (props) => {
+const ViewAllInterviewMembers = (props) => {
 
-    var techinterviewlist = null;
-    let member = useSelector(state => state.TechReducer.viewmemberfortech);
+
+    let interviewListForTech= useSelector((state)=>state.TechReducer.viewalltech);
     let dispatcher = useDispatch();
-    React.useEffect(()=>ViewInterviewMemberForTechAction_Function(), [])
-    const ViewInterviewMemberForTechAction_Function = () => {
-            dispatcher(ViewInterviewMemberForTechAction(techinterviewlist));
-    }
-    
-    const handleSubmit = (event) =>{ 
-        techinterviewlist = document.getElementById("intid").value;
-        dispatcher(ViewInterviewMemberForTechAction(techinterviewlist));
-        renderData(member);
-    }
+    React.useEffect(()=>InterviewMemberForTechList(), [])
+        const InterviewMemberForTechList = () => {
+            dispatcher(ViewAllInterviewMembersForTechAction());
+        }
+
+       
+        console.log("InterviewMemberList: ", interviewListForTech);
+        if (!Array.isArray(interviewListForTech)) {
+            interviewListForTech = [];
+            console.log("Set interview Member to blank array");
+        }
+
 
     return (
-        // All Final Operations and Functions
+
         <div style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center"
-          }}>
-            <Jumbotron style={{width: 700}}>
+        }}>
+            <Jumbotron style={{ width: 600 }}>
                 <Form>
                     <Form.Group controlId="formGroupText">
-                        <Form.Label>View Candidate Using interviewid</Form.Label>
-                        <Form.Control id="intid" type="text" placeholder="Interview ID" />
-                        </Form.Group>
-                    <Button variant="dark" type="button" call onClick={handleSubmit}>
-                        Search
-                    </Button>
-                    <hr></hr>
-                        {renderData(member)}
-                </Form>
-            </Jumbotron>
-        </div>
+                        <Form.Label>List All Interview Member.</Form.Label>
+                    </Form.Group>
+                    <Table striped bordered hover size="sm">
+                        <thead>
+                <tr>
+                <th>Interview ID</th>  
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Start_Time</th>
+                        <th>End_Time</th>
+                        <th>TechRating</th>
+                        <th>Final<br></br>Status</th> 
+                </tr>
+            </thead>
+            <hr></hr>
+                {renderData(interviewListForTech)}
+       
+        </Table>
+        </Form>
+        </Jumbotron>
+    </div>
+
     );
 
-    //Alert
-    function AlertMemberNotFoundTech() {
-        const [show, setShow] = useState(true);
-        console.log(show, setShow);
-        if (show) {
-          return (
-            <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-              <Alert.Heading>Interview Member Not Found</Alert.Heading>
-              <p>
-              Candidate with the mentioned interview id was not found. Maybe you entered wrong id. Please check once!
-              </p>
-            </Alert>
-          );
-        }
-        else{
-            return (
-                <div></div>
-            );
-        }
 
+function renderData(interviewListForTech) {
+    console.log("interviewmember dispatcher object returned from the server : ", interviewListForTech);
+    if(interviewListForTech!==undefined) {
+      return interviewListForTech.map((interviewmember,index) =>{
+        const {interviewid,location,date,start_time,end_time,techrating,finalstatus} = interviewmember //destructuring
+        return(
+                    <tbody>
+                        <tr>
+                        <td>{interviewid}</td>     
+                        <td>{location}</td>
+                        <td>{date}</td>
+                        <td>{start_time}</td>
+                        <td>{end_time}</td>
+                        <td>{techrating}</td>
+                        <td>{finalstatus}</td>    
+                </tr>
+                </tbody>
+    )
+});
     }
-    function renderData(member) {   
-        console.log("candidate dispatcher object returned from the server : ", member);
-        if(member!==undefined && member!==null && member.length!==0){
-            return(
-                <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th>Candidate ID</th>
-                            <th>Candidate Name</th>
-                            <th>Location</th>
-                            <th>Qualification</th>
-                            <th>Designation</th>
-                            <th>Experience</th>
-                            <th>Primary<br></br>Skills</th>
-                            <th>Secondary <br></br>Skills</th>
-                            <th>Notice <br></br>Period</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>{member.data.candidateid}</td>
-                            <td>{member.data.candidatename}</td>
-                            <td>{member.data.location}</td>
-                            <td>{member.data.qualification}</td>
-                            <td>{member.data.designation}</td>
-                            <td>{member.data.experience}</td>
-                            <td>{member.data.primaryskills}</td>
-                            <td>{member.data.secondaryskills}</td>
-                            <td>{member.data.noticeperiod}</td>
-                            
-                        </tr>
-                        </tbody>
-                </Table>
-            );
-        }
-
-        if(member!==undefined && member===null){
-            console.log("called the alert for tech");
-            return(<AlertMemberNotFoundTech show="true"/>);
-        }
-    }        
-
 }
-
-export default ViewInterviewMemberForTech;
+}
+export default ViewAllInterviewMembers;

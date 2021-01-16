@@ -1,7 +1,7 @@
 import './App.css';
 
 //Internal Components
-import Logo from "./logo.svg"
+import Logo from "./Logo-ITS.jpg"
 import HomeComponent from './components/home'
 import HomeAdminComponent from './components/homeadmin';
 import AboutUsComponent from './components/about';
@@ -18,7 +18,7 @@ function App() {
     <div className="App">
 
     {/* NAVIGATION BAR COMPONENT FROM BOOTSTRAP */}
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar bg="dark" variant="dark" expand="lg" style={{height: 70}}>
         <Navbar.Brand href="/">
           <img
           src={Logo} 
@@ -27,23 +27,24 @@ function App() {
           className="d-inline-block align-top"
           alt="React Bootstrap logo"
         />{' '}
-        Interview Tracking System
+        <h6 class="mx-auto">Interview Tracking System</h6>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             
-            <Link to='/'>
-              <Nav.Link href="/" active>Home</Nav.Link>
+          <Link to='/'>
+              <Nav.Link href="/">Home</Nav.Link>
             </Link>
             <Link to='/admin'>
-              <Nav.Link href="/admin" active>Services</Nav.Link>
+              <Nav.Link href="/admin">Services</Nav.Link>
             </Link>
             <Link to='/about'>
               <Nav.Link href="/about">About Us</Nav.Link>
             </Link>
-            <Nav.Link href="#link" disabled>Log Out</Nav.Link>
+           
           </Nav>
+          
         </Navbar.Collapse>
       </Navbar>
       {/* Some Common Components if required at all */}

@@ -1,36 +1,32 @@
-//Admin Services Component : CHECK WARNING.info FOR NOTES.....
-//import InterviewSchedulerForAdmin from './interviewscheduler/InterviewSchedulerForAdmin'
-
-//import InterviewSchedulerForAdmin from './interviewscheduler/InterviewSchedulerForAdmin'
-//import PanelMemberForAdmin from './panelmember/PanelMemberForAdmin'
-
-// Bootstrap
-
-
 import PanelMemberForHR from './panelmember/PanelMemberForHR'
 import SearchCandidate from './candidate/CandidateForHR';
 import InterviewSchedulerForHr from './interviewscheduler/InterviewSchedulerForHr';
-import InterviewSchedulerForHrRating from './interviewscheduler/InterviewSchedulerForHrRating';
 
 
-import { Tab, Tabs } from 'react-bootstrap'
+
+import { Jumbotron, Button, Tab, Tabs } from 'react-bootstrap'
 
 const HRComponent = () => {
     return (
-        <div>
-            <Tabs id="uncontrolled-tab-example" >
+        <div style={{ backgroundColor: "navy"}}>
+            <br></br>
+            <h1 style={{color: "white"}}><b><i>HR Panel Member Services</i></b></h1>
+            <br></br>
 
-                <Tab eventKey="PanelMember" title="HR INTERVIEW" >
-                <InterviewSchedulerForHr></InterviewSchedulerForHr>
-                    <InterviewSchedulerForHrRating></InterviewSchedulerForHrRating>
-                <SearchCandidate></SearchCandidate>
-                    <PanelMemberForHR></PanelMemberForHR>
-                    <br></br>
-                    <br></br>
+            <Tabs defaultActiveKey="Home"  id="uncontrolled-tab-example" variant="pills">
 
-                   
-                
+                <Tab eventKey="InterviewSchedulerView"title="View Interview Members" >
+                    <InterviewSchedulerForHr></InterviewSchedulerForHr>
                 </Tab>
+                <Tab eventKey="Candidate" title="Candidate Details">
+                    <SearchCandidate></SearchCandidate></Tab>
+                <Tab eventKey="PanelMember" title="Surrender As Panel">
+                    <PanelMemberForHR></PanelMemberForHR>
+                </Tab>
+                
+            
+                
+                
             </Tabs>
         </div>
     );

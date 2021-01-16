@@ -1,5 +1,5 @@
 //const initialState = [];
-const CandidateReducer = (state = {candidate: [],candidates: [], location: [], qualification: [], designation:[], primaryskill: [], secondaryskill: []}, action) => {
+const CandidateReducer = (state = {candidate: [],candidates: [], location: [], qualification: [], designation:[], primaryskill: [], secondaryskill: [], filter: []}, action) => {
     switch (action.type) {
         case 'ADD_CANDIDATE':
             state.candidate.push(action.payload);
@@ -22,6 +22,21 @@ const CandidateReducer = (state = {candidate: [],candidates: [], location: [], q
         case 'GET_SECONDARYSKILLS':
             state.secondaryskill = action.payload;
             return state;
+        case 'GET_DISTINCT_NAMES':
+            state.filter = action.payload;
+            return state;
+        case 'GET_DISTINCT_LOCATIONS':
+            state.filter = action.payload;
+            return state;
+        case 'GET_DISTINCT_QUALIFICATIONS':  
+            state.filter = action.payload;
+            return state;  
+        case 'GET_DISTINCT_DESIGNATIONS':
+            state.filter = action.payload;
+            return state;
+        case 'GET_DISTINCT_PRIMARY_SKILLS':
+            state.filter = action.payload;
+            return state;           
         default:
             return state;
     }

@@ -18,6 +18,8 @@ let qualification;
 let designation; 
 let primaryskill;
 let secondaryskill;
+let selectedPrimary;
+let selectedSecondary;
 
 const AddCandidate = () => {
 
@@ -112,17 +114,18 @@ const AddCandidate = () => {
             <Jumbotron style={{ width: 700 }}>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formGroupText">
-                        <Form.Label><b>Add Candidate Details</b></Form.Label>
+                        <Form.Label>Add Candidate Details</Form.Label>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicName">
                         <Form.Label>Enter Name</Form.Label>
-                        <Form.Control type="text" id="name" name="name" placeholder="Enter name" />
+                        <Form.Control type="text" id="name" name="name" placeholder="Enter name" onBlur={validateCandidateName}/>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicLocation">
                     <Form.Label>Location</Form.Label>
                     <Form.Control as="select" id="loc" name="loc" onChange={handleChangeLoc}>
+                        <option>select</option>
                         {renderLocations(locationList)}       
                     </Form.Control>
                     </Form.Group>
@@ -130,6 +133,7 @@ const AddCandidate = () => {
                     <Form.Group controlId="formBasicQualification">
                     <Form.Label>Qualification</Form.Label>
                     <Form.Control as="select" id="qual" name="qual" onChange={handleChangeQual}>
+                        <option>select</option>
                         {renderQualifications(qualificationList)}       
                     </Form.Control>
                     
@@ -138,37 +142,43 @@ const AddCandidate = () => {
                     <Form.Group controlId="formBasicDesignation">
                         <Form.Label>Designation</Form.Label>
                         <Form.Control as="select" id="desig" name="design" onChange={handleChangeDesign}>
+                        <option>select</option>
                         {renderDesignations(designationList)}
                         </Form.Control>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicExperience">
                         <Form.Label>Experience in Years</Form.Label>
-                        <Form.Control type="Number"  id="exp" name="exp"/>
+                        <Form.Control type="Number"  id="exp" name="exp" onBlur={validateExperience}/>
                     </Form.Group>                    
 
                     <Form.Group controlId="formBasicPrimarySkill">
                         <Form.Label>Primary Skill</Form.Label>
-                        <Form.Control as="select" id="ps" name="ps" onChange={handleChangePs}>
+                        <Form.Control as="select" id="ps" name="ps" onChange={handleChangePs} onBlur={validatePs}>
+                        <option>select</option>
                         {renderPrimarySkills(primaryskillsList)}
                         </Form.Control>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicSecondarySkill">
                         <Form.Label>Secondary Skill</Form.Label>
-                        <Form.Control as="select" id="ss" name="ss" onChange={handleChangeSs}>
+                        <Form.Control as="select" id="ss" name="ss" onChange={handleChangeSs} onBlur={validateSs}>
+                        <option>select</option>
                         {renderSecondarySkills(secondaryskillsList)}
                         </Form.Control>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicNoticePeriod">
                         <Form.Label>NoticePeriod in Months</Form.Label>
-                        <Form.Control type="Number" id="np" name="np"/>
+                        <Form.Control type="Number" id="np" name="np" onBlur={validateNoticePeriod}/>
                     </Form.Group> 
 
-                    <Button variant="dark" type="submit">
-                        Submit
-  </Button>
+                    <Form.Group controlId="formBasicButton">
+                    <Button variant="dark" type="submit">Submit </Button>
+                    &nbsp; &nbsp;    
+                    <Button variant="primary" type="reset">Reset </Button>
+                    </Form.Group>
+  
 
                 </Form>
             </Jumbotron>
@@ -177,6 +187,22 @@ const AddCandidate = () => {
 }
 
 
+
+function validatePs(event) {
+    selectedPrimary = event.target.value;
+  console.log("Selected option: " + selectedPrimary);
+}
+
+function validateSs(event){
+    selectedSecondary = event.target.value;
+  console.log("Selected option: " + selectedSecondary);
+
+  if(selectedSecondary === selectedPrimary)
+  {
+      alert("Skill you entered is already your primary skill, enter another skill!");
+  }
+  
+}
 
 function handleChangeLoc(event) {
     location = event.target.value
@@ -260,6 +286,67 @@ function renderSecondarySkills(secondaryskillsList){
        )
     })
  };
+
+
+ function validateCandidateName(event)
+ {
+     const data = event.target.value;
+     console.log("target", data);
+
+     let regex = /^([A-Z][a-zA-Z]{3,})$/;
+     let str = data;
+     console.log(regex, str);
+
+     if(regex.test(str) && str != "" && str != null)
+     {
+         console.log("valid");
+     }
+     else
+     {
+         alert("Enter valid name, it should only contain characters and cannot be null or blank!");
+     }
+ }
+
+ function validateExperience(event)
+ {
+    const data = event.target.value;
+    console.log("target", data);
+
+    let regex = /^[0-9]$/;
+    let str = data;
+    console.log(regex, str);
+
+    if(regex.test(str) && str != "")
+    {
+        console.log("valid");
+    }
+    else
+    {
+        alert("Enter valid Experience, it cannot be negative or blank!");
+    }
+ }
+
+
+ function validateNoticePeriod(event) {
+
+    const data = event.target.value;
+    console.log("target", data);
+
+    let regex = /^[2-9]$/;
+    let str = data;
+    console.log(regex, str);
+
+    if(regex.test(str) && str != "")
+    {
+        console.log("valid");
+    }
+    else
+    {
+        alert("Enter valid Notice Period, it cannot be blank and must be atleat 2 months!");
+    }
+ }
+
+
 
 
  function handleSubmit(event) {

@@ -2,29 +2,31 @@
 
 import SearchCandidate from './hrservices/viewhrcandidate'
 import ViewACandidateForTech from './techservices/viewtechcandidate'
-import {Accordion, Card, Button } from 'react-bootstrap'
+import {Row, Col,Accordion, Card, Button } from 'react-bootstrap'
 //import CancelInterview from './services/cancelinterview.js'
 
 const CandidateForTech = () => {
     return (
         <div>
             {/* All underlying operations from services */}
-            <Accordion>
-                <Card>
-                    <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="5">
-                        View a Candidate
-                    </Accordion.Toggle>
-                    </Card.Header>
-                    <Accordion.Collapse eventKey="5">
-                    {/* Search an Candidate component */}
-                    <Card.Body class="bg-custom"><ViewACandidateForTech></ViewACandidateForTech></Card.Body>
-                    {/* Search an Candidate component */}
-                    </Accordion.Collapse>
-                </Card>
-            </Accordion>
+            <Card>
+                <Accordion>
+                    <table className="marginLeft">
+                        <Col className="align-items-center">
+                            <Row>
+                                <Accordion.Toggle as={Button} variant="dark" eventKey="0"> 
+                                    <center>View a Candidate</center>
+                                </Accordion.Toggle>
+                                
+                                <Accordion.Collapse eventKey="0">
+                                <Card.Body class="bg-custom"><ViewACandidateForTech></ViewACandidateForTech></Card.Body>
+                                </Accordion.Collapse>
+                            </Row>
+                        </Col>
+                    </table>
+                </Accordion>
+            </Card>
         </div>
     );
-}
-
+    }
 export default CandidateForTech;

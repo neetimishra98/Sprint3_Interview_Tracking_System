@@ -7,7 +7,7 @@ console.log("Panelllllllllllllllll id: ",interviewscheduler.panel.panID);
 
     return async function (dispatch) {
         const res = await axios.post(
-            `http://localhost:9091/cgits/interviewscheduler/${interviewscheduler.candidate.candID}/${interviewscheduler.panel.panID}`,
+            `http://localhost:9090/cgits/interviewscheduler/${interviewscheduler.candidate.candID}/${interviewscheduler.panel.panID}`,
 
                 {
             

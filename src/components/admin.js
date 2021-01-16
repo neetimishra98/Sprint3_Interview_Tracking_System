@@ -18,7 +18,7 @@ import { Tab, Tabs } from 'react-bootstrap'
 const AdminComponent = () => {
     return (
         <div>
-            <Tabs id="uncontrolled-tab-example" variant="pills">
+            <Tabs id="uncontrolled-tab-example" variant="pills" style={{backgroundColor: "#252525"}}>
                 <Tab eventKey="Candidate " title="Candidate" >
                     <CandidateForAdmin></CandidateForAdmin>
                 </Tab>
