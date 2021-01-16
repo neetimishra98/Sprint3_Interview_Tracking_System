@@ -9,11 +9,11 @@ const CandidateForHR = (props) => {
             <Accordion>
                 <Card>
                     <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="30">
+                    <Accordion.Toggle as={Button} variant="link" eventKey="0">
                         View a Candidate
                     </Accordion.Toggle>
                     </Card.Header>
-                    <Accordion.Collapse eventKey="30">
+                    <Accordion.Collapse eventKey="0">
                     {/* Search an Candidate component */}
                     <Card.Body class="bg-custom"><SearchCandidate></SearchCandidate></Card.Body>
                     {/* Search an Candidate component */}
