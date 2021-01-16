@@ -9,7 +9,7 @@ const CandidateForHR = (props) => {
             <Accordion>
                 <Card>
                     <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                    <Accordion.Toggle as={Button}   variant="link"  target="_blank" eventKey="0">
                         View a Candidate
                     </Accordion.Toggle>
                     </Card.Header>

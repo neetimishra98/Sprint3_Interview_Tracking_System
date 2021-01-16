@@ -18,9 +18,9 @@ import { Tab, Tabs } from 'react-bootstrap'
 const HRComponent = () => {
     return (
         <div>
-            <Tabs id="uncontrolled-tab-example">
+            <Tabs id="uncontrolled-tab-example" >
 
-                <Tab eventKey="PanelMember" title="HR INTERVIEW">
+                <Tab eventKey="PanelMember" title="HR INTERVIEW" >
                 <InterviewSchedulerForHr></InterviewSchedulerForHr>
                     <InterviewSchedulerForHrRating></InterviewSchedulerForHrRating>
                 <SearchCandidate></SearchCandidate>

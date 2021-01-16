@@ -12,7 +12,7 @@ const PanelMemberForHR = (props) => {
             <Accordion>
                 <Card>
                     <Card.Header>
-                        <Accordion.Toggle as={Button} variant="link" eventKey="9">
+                        <Accordion.Toggle as={Button}   variant="link" target="_blank" eventKey="9">
                             Surrender As HR Panel
                         </Accordion.Toggle>
                     </Card.Header>
