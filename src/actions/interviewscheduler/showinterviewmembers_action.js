@@ -4,7 +4,7 @@ const ShowInterviewMemberAction = ()=> {
     return async function(dispatch){
         var err = null;
         const axios = require('axios').default;
-        const url = 'http://localhost:8080/cgits/interviewmembers';
+        const url = 'http://localhost:9090/cgits/interviewmembers';
         const serverResponse = await axios.get(url) //await can only be used with async function....
         .then(response => dispatch({type: 'VIEW_INTERVIEW_LIST_FOR_HR', payload: response.data}))
         .catch(error => console.log(err=error));

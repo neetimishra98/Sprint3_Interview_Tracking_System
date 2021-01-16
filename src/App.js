@@ -1,7 +1,7 @@
 import './App.css';
 
 //Internal Components
-import Logo from "./Logo-ITS.jpg"
+import Logo from "./Logo-ITS.png"
 import HomeComponent from './components/home'
 import HomeAdminComponent from './components/homeadmin';
 import AboutUsComponent from './components/about';
@@ -22,12 +22,12 @@ function App() {
         <Navbar.Brand href="/">
           <img
           src={Logo} 
-          width="30"
-          height="30"
+          height='30'
           className="d-inline-block align-top"
+          filter="invert(1)"
           alt="React Bootstrap logo"
         />{' '}
-        <h6 class="mx-auto">Interview Tracking System</h6>
+        Interview Tracking System
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

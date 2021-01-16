@@ -1,4 +1,4 @@
-import { Form, Table, Jumbotron, Button } from 'react-bootstrap'
+import { Alert,Form, Table, Jumbotron, Button } from 'react-bootstrap'
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import addCandidateAction from '../../../actions/candidate/adminactions/addCandidateAction'
@@ -188,6 +188,7 @@ const AddCandidate = () => {
 
 
 
+
 function validatePs(event) {
     selectedPrimary = event.target.value;
   console.log("Selected option: " + selectedPrimary);
@@ -364,7 +365,8 @@ function renderSecondarySkills(secondaryskillsList){
     const candObj = new Candidate(candidatename, location, qualification, designation, experience, primaryskill, secondaryskill, noticeperiod);
     console.log('Candidate object', candObj);
     dispatch(addCandidateAction(candObj));
-    history.push('/');
+    history.push('/admin');
+    alert("Candidate Details added Successfully!");
 }
 
 export default AddCandidate;

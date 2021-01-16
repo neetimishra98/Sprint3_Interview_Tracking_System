@@ -128,10 +128,12 @@ import React from 'react';
                             </Form.Control>
     
                         </Form.Group>
-    
-                        <Button variant="dark" type="submit" call>
-                           ADD
-                        </Button>
+                        <Form.Group controlId="formBasicButton">
+                    <Button variant="dark" type="submit">SCEDULE HR INTERVIEW</Button>
+                    &nbsp; &nbsp;    
+                    <Button variant="primary" type="reset">Reset </Button>
+                    </Form.Group>
+  
                     </Form>
                 </Jumbotron>
             </div>
@@ -186,13 +188,14 @@ import React from 'react';
         const start_time=data.get('start');
         const end_time=data.get('end');
         if(locations==='' ||locations===null) {
-            alert("Name cannot be blank");
+            alert("Entries should not be blank");
             return;
         }
         const hrinterviewObj = new hrInterviewScheduler(selectedCanId,selectedpanId,locations,date,hrrating,finalstatus,start_time,end_time,);
         console.log("Interview Object : ",hrinterviewObj);
         dispatch(addHRInterviewAction(hrinterviewObj,selectedCanId,selectedpanId));
-        history.push('/');
+        history.push('/admin');
+        alert("HR Interview Sheduled Successfully !");
     }
     
     

@@ -17,5 +17,4 @@ const SurrenderAsATechAction = (props)=> {
         }
     }
 }
-
 export default SurrenderAsATechAction;

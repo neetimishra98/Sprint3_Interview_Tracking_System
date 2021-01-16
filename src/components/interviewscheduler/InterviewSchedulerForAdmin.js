@@ -31,7 +31,7 @@ return (
          <Col className="align-items-center">
                    <Row>
                   <Accordion.Toggle as={Button} variant="dark" eventKey="0">
-                      <center><h2><b><i>  TECH INTERVIEW</i></b></h2></center>
+                      <center><h2><i>TECHNICAL INTERVIEW</i></h2></center>
               </Accordion.Toggle>
              
               <Accordion.Collapse eventKey="0">
@@ -61,7 +61,7 @@ return (
               </Row>
               <Row>
               <Accordion.Toggle as={Button} variant="dark" eventKey="1">
-              <center><h2><b><i> HR INTERVIEW</i></b></h2></center>
+              <center><h2><i> HR INTERVIEW</i></h2></center>
               </Accordion.Toggle>
          
           <Accordion.Collapse eventKey="1">

@@ -6,7 +6,7 @@ const ViewInterviewMemberForTechAction = (props)=> {
         var err = null;
         var onLoad = 0;
         const axios = require('axios').default;
-        const url = 'http://localhost:8080/cgits/interviewscheduler/tech/'+props;
+        const url = 'http://localhost:9090/cgits/interviewscheduler/tech/'+props;
         const serverResponse = await axios.get(url) //await can only be used with async function....
         .then(response => dispatch({type: 'VIEW_INTERVIEW_MEMBER_FOR_TECH', payload: response}))
         .catch(error => console.log(err=error));

@@ -143,9 +143,11 @@ const TechShareandschedule = (props) => {
                         </Form.Group>
                                
 
-                    <Button variant="dark" type="submit" call>
-                        ADD
-                    </Button>
+                        <Form.Group controlId="formBasicButton">
+                    <Button variant="dark" type="submit">   SCEDULE TECHNICAL INTERVIEW </Button>
+                    &nbsp; &nbsp;    
+                    <Button variant="primary" type="reset">Reset </Button>
+                    </Form.Group>
                 </Form>
             </Jumbotron>
         </div>
@@ -200,13 +202,14 @@ function handleSubmit(event) {
     const start_time = data.get('start');
     const end_time = data.get('end');
     if (locations === '' || locations === null) {
-        alert("Name cannot be blank");
+        alert("Entries should not be blank");
         return;
     }
     const interviewObj = new InterviewScheduler(selectedCanId, selectedpanId, locations, date, techrating, finalstatus, start_time, end_time,);
     console.log("Interview Object : ", interviewObj);
     dispatch(addTechInterviewAction(interviewObj, selectedCanId, selectedpanId));
-    history.push('/');
+    history.push('/admin');
+    alert("Technical Interview Sheduled Successfully !");
 }
 
 
