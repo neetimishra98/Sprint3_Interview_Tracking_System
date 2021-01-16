@@ -8,18 +8,27 @@ import ViewaCandidateForTechAction from '../../../actions/candidate/view_a_cand_
 const ViewACandidateForTech = (props) => {
 
     var pathVar = null;
+
+
+
     let candidate = useSelector((state)=>state.TechReducer.candidates);
     let dispatcher = useDispatch();
-    React.useEffect(()=>ViewaCandidateForTechAction_Func(), [])
-    const ViewaCandidateForTechAction_Func = () => {
-        dispatcher(ViewaCandidateForTechAction(pathVar));
+    React.useEffect(()=>ViewaCandidateForTechAction_Function(), [])
+    const ViewaCandidateForTechAction_Function = () => {
+        console.log(pathVar);
+            dispatcher(ViewaCandidateForTechAction(pathVar));
+
     }
     
     const handleSubmit = (event) =>{ 
-        pathVar = document.getElementById("pathVariable").value;
+        pathVar = document.getElementById("pathV").value;
         dispatcher(ViewaCandidateForTechAction(pathVar));
+
+       // renderData(candidate);
         renderData(candidate);
+
     }
+
     return (
         // All Final Operations and Functions
         <div style={{
@@ -27,14 +36,14 @@ const ViewACandidateForTech = (props) => {
             justifyContent: "center",
             alignItems: "center"
           }}>
-            <Jumbotron style={{width: 700}}>
+            <Jumbotron style={{width: 800}}>
                 <Form>
                     <Form.Group controlId="formGroupText">
-                        <Form.Label>Enter candidate id</Form.Label>
-                        <Form.Control type="text" placeholder="Candidate ID" id="pathVariable"/>
+                        <Form.Label>Search by valid name/id</Form.Label>
+                        <Form.Control type="text" placeholder="Name or Candidate ID" id="pathV"/>
                     </Form.Group>
                     <Button variant="dark" type="button" call onClick={handleSubmit}>
-                        View
+                        View a candidate
                     </Button>
                     <hr></hr>
                         {renderData(candidate)}
@@ -53,7 +62,7 @@ const ViewACandidateForTech = (props) => {
             <Alert variant="danger" onClose={() => setShow(false)} dismissible>
               <Alert.Heading>Candidate Not Found</Alert.Heading>
               <p>
-                Candidate with the mentioned id was not found. Maybe you entered wrong id. Please check once!
+                Candidate with the mentioned id was not found. Maybe you entered wrong name/id. Please check once!
               </p>
             </Alert>
           );
@@ -74,24 +83,29 @@ const ViewACandidateForTech = (props) => {
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
-                            <th>Intreview ID</th>
+                            <th>Candidate ID</th>
+                            <th>Candidate Name</th>
                             <th>Location</th>
-                            <th>Tech Rating</th>
-                            <th>Status</th>
-                            <th>Date</th>
-                            <th>Start time</th>
-                            <th>End time</th>
+                            <th>Qualification</th>
+                            <th>Designation</th>
+                            <th>Experience(In Years)</th>
+                            <th>Primary Skills</th>
+                            <th>Secondary Skills</th>
+                            <th>Notice Period(In Months)</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{candidate.data.interviewid}</td>
+                            <td>{candidate.data.candidateid}</td>
+                            <td>{candidate.data.candidatename}</td>
                             <td>{candidate.data.location}</td>
-                            <td>{candidate.data.techrating}</td>
-                            <td>{candidate.data.finalstatus}</td>
-                            <td>{candidate.data.date}</td>
-                            <td>{candidate.data.start_time}</td>
-                            <td>{candidate.data.end_time}</td>
+                            <td>{candidate.data.qualification}</td>
+                            <td>{candidate.data.designation}</td>
+                            <td>{candidate.data.experience}</td>
+                            <td>{candidate.data.primaryskills}</td>
+                            <td>{candidate.data.secondaryskills}</td>
+                            <td>{candidate.data.noticeperiod}</td>
                         </tr>
                     </tbody>
                 </Table>

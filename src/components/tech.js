@@ -11,12 +11,12 @@ const TechComponent = () => {
     return (
         <div>
             <body>
-            <Tabs defaultActiveKey="Home" id="uncontrolled-tab-example">
+            <Tabs id="uncontrolled-tab-example">
     
-            <Tab eventKey="Interviewscheduler" title="TECH Services">
+            <Tab eventKey="PanelMember" title="TECH Services">
             <InterviewSchedulerForTech></InterviewSchedulerForTech>
-            <PanelMemberForTech></PanelMemberForTech>
             <CandidateForTech></CandidateForTech>
+            <PanelMemberForTech></PanelMemberForTech>
 
             </Tab>
             </Tabs> 
