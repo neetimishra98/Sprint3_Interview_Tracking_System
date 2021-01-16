@@ -22,7 +22,7 @@ const TechComponent = () => {
                 <CandidateForTech></CandidateForTech>
                 </Tab>
                 <Tab eventKey="Panel Member" title="Panel Member">
-                    <PanelMemberForTech></PanelMemberForTech>
+                <PanelMemberForTech></PanelMemberForTech>
 
                 </Tab>
             </Tabs>

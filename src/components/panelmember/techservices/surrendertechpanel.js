@@ -19,6 +19,7 @@ const SurrenderAsTechPanel = (props) => {
         pathVar = document.getElementById("pathVariable").value;
         dispatcher(SurrenderAsATechAction(pathVar));
         renderData(panelMember);
+        renderData(panelMember);
     }
 
     return (
@@ -53,7 +54,7 @@ const SurrenderAsTechPanel = (props) => {
             <Alert variant="danger" onClose={() => setShow(false)} dismissible>
               <Alert.Heading>Panel member Not Found</Alert.Heading>
               <p>
-                Panel member with the mentioned id was not found. Maybe you entered wrong name/id. Please check once!
+                Panel member with the mentioned id was not found. Maybe you entered wrong id. Please check once!
               </p>
             </Alert>
           );
