@@ -19,14 +19,14 @@ const TechReducer = (state= {viewmemberfortech: [],ratinglistcandidate: [],panel
         //case 'UPDATE_INTERVIEW': return action.payload;
 
 
-         //CASE TO SURRENDER AS HR
+         //CASE TO SURRENDER AS TECH
          case 'SURRENDER_AS_A_TECH': 
          state.panelmembers = action.payload;
          console.log('SURRENDER_AS_A_TECH', state.panelmembers);
          return state;
          //return action.payload;
 
-        //CASE TO VIEW A CANDIDATE FOR HR
+        //CASE TO VIEW A CANDIDATE FOR TECH
         case 'VIEW_A_CANDIDATE_FOR_TECH': 
         state.candidates = action.payload;
         console.log('VIEW_A_CANDIDATE_FOR_TECH', state.candidates);
