@@ -5,7 +5,7 @@ const SurrenderAsATechAction = (props)=> {
         var err = null;
         var onLoad = 0;
         const axios = require('axios').default;
-        const url = 'http://localhost:8080/cgits/panelmember/tech/search/'+props;
+        const url = 'http://localhost:9090/cgits/panelmember/tech/search/'+props;
 
        
         const serverResponse = await axios.get(url) //await can only be used with async function....
