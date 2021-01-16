@@ -46,30 +46,7 @@ const InterviewSchedulerForTech = () => {
                     {/* Fetch all Employee component */}
                     </Accordion.Collapse>
                 </Card>    
-                <Card>
-                    <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="4">
-                        View a Candidate
-                    </Accordion.Toggle>
-                    </Card.Header>
-                    <Accordion.Collapse eventKey="4">
-                    {/* Search an Candidate component */}
-                    <Card.Body><ViewACandidateForTech></ViewACandidateForTech></Card.Body>
-                    {/* Search an Candidate component */}
-                    </Accordion.Collapse>
-                </Card>  
-                <Card>
-                    <Card.Header>
-                        <Accordion.Toggle as={Button} variant="link" eventKey="5">
-                            Surrender As Tech Panel
-                        </Accordion.Toggle>
-                    </Card.Header>
-                    <Accordion.Collapse eventKey="5">
-                    {/* Search an Panel component */}
-                    <Card.Body><SurrenderAsTechPanel></SurrenderAsTechPanel></Card.Body>
-                    {/* Search an Panel component */}
-                    </Accordion.Collapse>
-                </Card>        
+           
             </Accordion>
         </div>
     );
