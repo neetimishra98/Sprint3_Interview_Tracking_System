@@ -29,10 +29,10 @@ const ViewAllInterviewMembers = (props) => {
             justifyContent: "center",
             alignItems: "center"
         }}>
-            <Jumbotron style={{ width: 600 }}>
+            <Jumbotron style={{ width: 800 }}>
                 <Form>
                     <Form.Group controlId="formGroupText">
-                        <Form.Label>List All Interview Member.</Form.Label>
+                        <Form.Label>List of All Interview Members</Form.Label>
                     </Form.Group>
                     <Table striped bordered hover size="sm">
                         <thead>

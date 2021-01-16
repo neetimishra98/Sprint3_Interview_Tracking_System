@@ -29,7 +29,7 @@ const GiveTechRating = (props) => {
             justifyContent: "center",
             alignItems: "center"
           }}>
-            <Jumbotron style={{width: 700}}>
+            <Jumbotron style={{width: 800}}>
                 <Form>
                     <Form.Group controlId="formGroupText">
                         <Form.Label>Give TechRating to a Candidate by Interviewid</Form.Label>
