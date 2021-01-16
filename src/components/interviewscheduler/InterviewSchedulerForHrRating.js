@@ -10,7 +10,7 @@ const InterviewSchedulerForHrRating = () => {
             <Accordion>
                 <Card>
                     <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="6">
+                    <Accordion.Toggle as={Button}   variant="link" target="_blank" eventKey="6">
 
                         Give HrRating To a Candidate
                     </Accordion.Toggle>

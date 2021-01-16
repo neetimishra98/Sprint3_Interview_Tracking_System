@@ -31,7 +31,7 @@ const ShowInterviewMember = (props) => {
             justifyContent: "center",
             alignItems: "center"
         }}>
-            <Jumbotron style={{ width: 600 }}>
+            <Jumbotron style={{ width: 800 }}>
                 <Form>
                     <Form.Group controlId="formGroupText">
                         <Form.Label>List All Interview Member.</Form.Label>
