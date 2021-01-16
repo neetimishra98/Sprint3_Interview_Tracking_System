@@ -11,7 +11,7 @@ const ViewACandidateForTech = (props) => {
 
 
 
-    let candidate = useSelector((state)=>state.HRReducer.candidates);
+    let candidate = useSelector((state)=>state.TechReducer.candidates);
     let dispatcher = useDispatch();
     React.useEffect(()=>ViewaCandidateForTechAction_Function(), [])
     const ViewaCandidateForTechAction_Function = () => {
@@ -24,8 +24,8 @@ const ViewACandidateForTech = (props) => {
         pathVar = document.getElementById("pathV").value;
         dispatcher(ViewaCandidateForTechAction(pathVar));
 
+       // renderData(candidate);
         renderData(candidate);
-        //renderData(candidate);
 
     }
 
