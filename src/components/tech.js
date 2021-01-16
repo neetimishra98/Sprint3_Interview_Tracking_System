@@ -15,8 +15,8 @@ const TechComponent = () => {
     
             <Tab eventKey="Interviewscheduler" title="TECH Services">
             <InterviewSchedulerForTech></InterviewSchedulerForTech>
-            <PanelMemberForTech></PanelMemberForTech>
-            <CandidateForTech></CandidateForTech>
+           {/* <PanelMemberForTech></PanelMemberForTech>
+            <CandidateForTech></CandidateForTech>*/}
 
             </Tab>
             </Tabs> 

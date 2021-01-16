@@ -6,14 +6,14 @@ const TechReducer = (state= {viewmemberfortech: [],ratinglistcandidate: [],panel
         //case to view all members
         case 'VIEW_INTERVIEW_MEMBER_FOR_TECH': 
         state.viewmemberfortech=action.payload;
-       // console.log('VIEW_INTERVIEW_MEMBER_FOR_TECH', state.viewmemberfortech);
+        console.log('VIEW_INTERVIEW_MEMBER_FOR_TECH', state.viewmemberfortech);
         return state;
         //return action.payload;
 
         //case to give techrating
         case 'GIVE_TECH_RATING' : 
         state.ratinglistcandidate=action.payload;
-       // console.log('GIVE_TECH_RATING', state.ratinglistcandidate);
+        console.log('GIVE_TECH_RATING', state.ratinglistcandidate);
         return state;
         //return action.payload;
     
@@ -39,7 +39,7 @@ const TechReducer = (state= {viewmemberfortech: [],ratinglistcandidate: [],panel
         return state;
         //return action.payload;
 
-        case 'VIEW_ALL_INT_MEMBER_FOR_TECH':
+        case 'VIEW_INTERVIEW_LIST_FOR_TECH':
             state.viewalltech=action.payload;
             console.log('viewalltech',state.viewalltech);
             return state;
