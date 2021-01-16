@@ -14,11 +14,11 @@ const CandidateForTech = () => {
                     <table className="marginLeft">
                         <Col className="align-items-center">
                             <Row>
-                                <Accordion.Toggle as={Button} variant="dark" eventKey="0"> 
+                                <Accordion.Toggle as={Button} variant="dark" eventKey="32"> 
                                     <center>View a Candidate</center>
                                 </Accordion.Toggle>
                                 
-                                <Accordion.Collapse eventKey="0">
+                                <Accordion.Collapse eventKey="32">
                                 <Card.Body class="bg-custom"><ViewACandidateForTech></ViewACandidateForTech></Card.Body>
                                 </Accordion.Collapse>
                             </Row>
