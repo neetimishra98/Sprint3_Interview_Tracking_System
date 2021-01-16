@@ -9,7 +9,7 @@ const ViewaCandidateForTechAction = (props)=> {
         console.log(props);
         const url = 'http://localhost:8080/cgits/candidate/techp/search/'+props;
         const serverResponse = await axios.get(url) //await can only be used with async function....
-        .then(response => dispatch({type: 'VIEW_A_CANDIDATE_FOR_TECH', payload: response.data}))
+        .then(response => dispatch({type: 'VIEW_A_CANDIDATE_FOR_TECH', payload: response}))
         .catch(error => console.log(err=error));
         console.log(serverResponse);
         if(err!==null && props!=undefined){

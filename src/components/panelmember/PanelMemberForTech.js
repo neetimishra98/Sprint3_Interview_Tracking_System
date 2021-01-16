@@ -19,11 +19,11 @@ const PanelMemberForTech = () => {
             <Accordion>
                 <Card>
                     <Card.Header>
-                        <Accordion.Toggle as={Button} variant="link" eventKey="20">
+                        <Accordion.Toggle as={Button} variant="link" eventKey="5">
                             Surrender As Tech Panel
                         </Accordion.Toggle>
                     </Card.Header>
-                    <Accordion.Collapse eventKey="20">
+                    <Accordion.Collapse eventKey="5">
                     {/* Search an Panel component */}
                     <Card.Body class="bg-custom"><SurrenderAsTechPanel></SurrenderAsTechPanel></Card.Body>
                     {/* Search an Panel component */}
