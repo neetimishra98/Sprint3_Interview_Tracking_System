@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-const ShowInterviewMemberAction = ()=> {
+const ViewAllInterviewMembersForTechAction = ()=> {
     return async function(dispatch){
         var err = null;
         const axios = require('axios').default;
-        const url = 'http://localhost:8080/cgits/interviewmembers';
+        const url = 'http://localhost:8080/cgits/interviewscheduler/tech';
         const serverResponse = await axios.get(url) //await can only be used with async function....
-        .then(response => dispatch({type: 'VIEW_INTERVIEW_LIST_FOR_HR', payload: response.data}))
+        .then(response => dispatch({type: 'VIEW_INTERVIEW_LIST_FOR_TECH', payload: response.data}))
         .catch(error => console.log(err=error));
         if(err!=null || serverResponse==null){
             console.log("Something went wrong while connecting to srver");
@@ -14,5 +14,5 @@ const ShowInterviewMemberAction = ()=> {
     }
 }
 
-export default ShowInterviewMemberAction;
+export default ViewAllInterviewMembersForTechAction;
 
