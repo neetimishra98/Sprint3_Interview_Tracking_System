@@ -32,8 +32,6 @@ const TechReducer = (state= {viewmemberfortech: [],ratinglistcandidate: [],panel
          return state;
          //return action.payload;
 
-       
-
         default:
             return state;
 
