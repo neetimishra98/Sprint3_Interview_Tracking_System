@@ -6,8 +6,9 @@ import { Jumbotron, Button, Nav, Card, Container, Row, Col } from 'react-bootstr
 const AboutUsComponent = () => {
     return (
         <div>
-            <Jumbotron style={{textAlign:"left", backdropFilter: "blur(10px)", marginLeft: 10, marginRight: 10}}>
-                <h1>Interview Tracking App</h1>
+            <br></br>
+            <Jumbotron style={{textAlign:"left", backgroundColor:'rgba(15,15,15,0.5)', filter: 'blur(10)', color: 'white', marginLeft: 10, marginRight: 10}}>
+                <h1><b><i>Interview Tracking App</i></b></h1>
                 <p>
                     This is a service for tracking interview schedules in an organization, a simple project done by a team from Capgemini as a part of
                     their training. ITS provides services that connect to RESTful APIs which handle with data from a postgre database with mock data. 
@@ -18,7 +19,7 @@ const AboutUsComponent = () => {
                 </p>
             </Jumbotron>
             <br></br>
-            <h1>Our Team</h1>
+            <h1 style={{backgroundColor:'rgba(15,15,15,0.5)', color:"white"}}><b><i>Our Team</i></b></h1>
             <br></br>
             {/* MEMBERS */}
             <Container>
@@ -156,8 +157,6 @@ const AboutUsComponent = () => {
         </div>
     );
 }
-
-
 
 export default AboutUsComponent;
 

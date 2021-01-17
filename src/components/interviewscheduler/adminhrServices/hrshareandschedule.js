@@ -8,7 +8,7 @@ import React from 'react';
     
     import addHRInterviewAction from '../../../actions/interviewscheduler/add_hrinterview';
     import hrInterviewScheduler from '../../../models/hrInterviewScheduler';
-    import showcandidatesAction from '../../../actions/interviewscheduler/get_candidates';
+    import showtechcandidatesAction from '../../../actions/interviewscheduler/getCandidatesFromTechAction'
     import showPanelAction from '../../../actions/interviewscheduler/get_panel';
     
     
@@ -21,14 +21,14 @@ import React from 'react';
             dispatch = useDispatch();
             history = useHistory();
             //candidate
-            let candList = useSelector(state => state.InterviewReducer.candidates);
-            console.log("candList: ", candList);
+            let candList = useSelector(state => state.InterviewReducer.techcand);
+            console.log("candListttttttttt: ", candList);
             React.useEffect(() => {
                 candidateList()
               }, []);
             
               const candidateList = () => {
-                dispatch(showcandidatesAction())
+                dispatch(showtechcandidatesAction())
               }
     
               if(!Array.isArray(candList)){
@@ -141,11 +141,13 @@ import React from 'react';
     }
     
     function handleChangecandidate(event) {
+       // console.log("candList: ", candList);
         selectedCanId = event.target.value
         console.log("selected candidate: "+ selectedCanId);
     }
     
     function handleChangepanel(event) {
+       // console.log("panellllllllll", panList);
         selectedpanId = event.target.value
         console.log("selected panel member: "+ selectedpanId);
     }
@@ -155,9 +157,9 @@ import React from 'react';
         console.log("candList: ", candList);
         //console.log("deptList[0].deptId: ", deptList[0].deptId);
         return candList.map((candidate) => {
-           const { candidateid } = candidate //destructuring //candidte id 
+           //const { candidateid } = candidate //destructuring //candidte id 
            return (
-            <option key={candidateid} value={candidateid}>{candidateid}</option>
+            <option key={candidate} value={candidate}>{candidate}</option>
            )
         })
      }
@@ -195,7 +197,7 @@ import React from 'react';
         console.log("Interview Object : ",hrinterviewObj);
         dispatch(addHRInterviewAction(hrinterviewObj,selectedCanId,selectedpanId));
         history.push('/admin');
-        alert("HR Interview Sheduled Successfully !");
+        alert("HR Interview Scheduled Successfully !");
     }
     
     

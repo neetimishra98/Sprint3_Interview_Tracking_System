@@ -1,4 +1,3 @@
-//const initialState = [];
 const CandidateReducer = (state = {candidate: [],candidates: [], location: [], qualification: [], designation:[], primaryskill: [], secondaryskill: [], filter: []}, action) => {
     switch (action.type) {
         case 'ADD_CANDIDATE':

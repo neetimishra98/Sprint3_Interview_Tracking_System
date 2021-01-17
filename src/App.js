@@ -7,6 +7,7 @@ import HomeAdminComponent from './components/homeadmin';
 import AboutUsComponent from './components/about';
 import HomeHRComponent from './components/homehr';
 import HomeTechComponent from './components/hometech';
+import MultipleLoginComponent from './components/MultiLogin';
 //Installed Components
 import { Route, Link, Switch } from 'react-router-dom';
 //Bootstrap
@@ -36,11 +37,11 @@ function App() {
           <Link to='/'>
               <Nav.Link href="/">Home</Nav.Link>
             </Link>
-            <Link to='/admin'>
-              <Nav.Link href="/admin">Services</Nav.Link>
-            </Link>
             <Link to='/about'>
-              <Nav.Link href="/about">About Us</Nav.Link>
+              <Nav.Link href="/">About Us</Nav.Link>
+            </Link>
+            <Link to='/'>
+              <Nav.Link href="/">Logout</Nav.Link>
             </Link>
            
           </Nav>
@@ -51,11 +52,15 @@ function App() {
 
       {/* Switching the content from nav operations */}
       <Switch>
+      
         <Route path='/' component={HomeComponent} exact />
+
         <Route path='/admin' component={HomeAdminComponent} exact />
         <Route path='/hr' component={HomeHRComponent} exact />
         <Route path='/tech' component={HomeTechComponent} exact />
         <Route path='/about' component={AboutUsComponent} exact />
+
+
       </Switch>
     </div>
   );
@@ -67,3 +72,13 @@ function App() {
 }
 */
 export default App;
+/*
+
+
+        <Route path='/login' component={MultipleLoginComponent} exact />
+        <Route path='/' component={HomeComponent} exact />
+        <Route path='/admin' component={HomeAdminComponent} exact />
+        <Route path='/hr' component={HomeHRComponent} exact />
+        <Route path='/tech' component={HomeTechComponent} exact />
+        <Route path='/about' component={AboutUsComponent} exact />
+*/

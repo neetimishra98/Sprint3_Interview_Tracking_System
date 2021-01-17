@@ -13,11 +13,16 @@ const AddPanelMemberAction = (props)=> {
             .catch(error => console.log(err=error));
             
             console.log(serverResponse);
+            if(serverResponse.data===undefined){
+            console.log("COULD NOT ADD PANEL MEMBER, SINCE EMPLOYEE WAS NOT FOUND");
+        }
         }
         if(err!==null && props!==undefined){
             console.log("Operation could not be completed, error from server");
             dispatch({type: 'ADD_PANEL_MEMBER', payload: null});
         }
+        
+        
     }
 }
 

@@ -1,4 +1,4 @@
-const InterviewReducer = (state={interviewschedules: [],candidates: [],panels: [],hr: []}, action) => {
+const InterviewReducer = (state={interviewschedules: [],candidates: [], techcand: [], panels: [],hr: []}, action) => {
     switch(action.type) {
         case 'ADD_TECHINTERVIEW':
             console.log("In technical Reducer",action.payload);
@@ -7,6 +7,9 @@ const InterviewReducer = (state={interviewschedules: [],candidates: [],panels: [
         case 'SHOW_CANDIDATES':
             state.candidates = action.payload;
             return state;
+        case 'SHOW_TECH_CANDIDATES':
+            state.techcand = action.payload;
+            return state;    
         case 'SHOW_PANEL':
             state.panels = action.payload;     
             return state;

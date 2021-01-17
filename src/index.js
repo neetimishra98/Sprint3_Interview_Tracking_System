@@ -13,22 +13,16 @@ import { MDBTimePicker, MDBCol } from "mdbreact";
 import InterviewReducer from './reducers/adminInterviewReducer';
 import PanelMemberReducer from './reducers/adminPanelMemberReducer';
 import CandidateReducer from './reducers/adminCandidateReducer';
+import userReducer from './reducers/loginReducer';
 
 
 import HRReducer from './reducers/hrReducer';
 import TechReducer from './reducers/techreducer';
 import EmployeeReducer from './reducers/adminEmployeeReducer';
 
-let allReducers = combineReducers({'CandidateReducer': CandidateReducer, 'InterviewReducer' : InterviewReducer,'PanelMemberReducer' : PanelMemberReducer, 'EmployeeReducer' : EmployeeReducer, 'TechReducer' : TechReducer, 'HRReducer' : HRReducer});
+let allReducers = combineReducers({'CandidateReducer': CandidateReducer, 'InterviewReducer' : InterviewReducer,'PanelMemberReducer' : PanelMemberReducer, 'EmployeeReducer' : EmployeeReducer, 'TechReducer' : TechReducer, 'HRReducer' : HRReducer, 'userReducer' : userReducer});
 let store = createStore(allReducers,applyMiddleware(ReduxThunk));
 store.subscribe(()=>console.log('Store state: ' ,store.getState()));
-
-
-
-/*let store = createStore(InterviewReducer, PanelMemberReducer,CandidateReducer
-  compose(applyMiddleware(ReduxThunk)));
-  /*,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));*/
 
 store.subscribe(()=>console.log('Current State: ', store.getState()));
 
